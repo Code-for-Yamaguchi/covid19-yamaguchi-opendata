@@ -12,3 +12,6 @@ if __name__ == "__main__":
     #self.dataの全要素をjson形式で出力
     dm.export_jsons()
     print('---done---')
+
+    gd = dl.GraphData()
+    gd.main()
