@@ -108,3 +108,34 @@ class CovidDataManager:
             os.makedirs(directory)
         with open(directory + key + '.json', 'w', encoding='utf-8') as f:
             json.dump(self.data[key], f, indent=4, ensure_ascii=False)
+
+class GraphData:
+    def __init__(self):
+        self.outfile = [
+            "patients_cnt.json",
+            "patients.json",
+            "inspections.json",
+            "hosptitalizations.json",
+            "querents.json"
+        ]
+
+        #origin_file_list = glob.glob("./origin_data/*.json")
+        #print(origin_file_list)
+
+    def main(self):
+        #self.generate_patients_cnt()
+        self.generate_patients()
+
+    def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
+        if not os.path.exists(out_directory):
+            os.makedirs(out_directory)
+        with open(origin_directory + "patients.json") as f:
+            data = json.load(f)
+        out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
+        data["data"] = out
+        with open(out_directory+ self.outfile[1], 'w') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+if __name__ == "__main__":
+    gd = GraphData()
+    gd.main()
