@@ -15,6 +15,10 @@ REMOTE_SOURCES = {
     'hospitalizations':{
         'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/1a5f9bca-3216-45df-8a99-5c591df8f628/download/350001_yamaguchi_covid19_hospitalization.csv',
         'type':'csv'
+	},
+    'querents':{
+        'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/7f2f7b7c-48de-4c41-86ae-bef45da8aeaa/download/350001_yamaguchi_covid19_call_center.csv',
+        'type':'csv'
 	}
 }
 
@@ -30,7 +34,8 @@ INT_CAST_KEYS = [
     "検査実施_件数",
     "入院",
     "退院",
-    "死亡"
+    "死亡",
+    "相談件数"
 ]
 
 #先にある順にデコードされます

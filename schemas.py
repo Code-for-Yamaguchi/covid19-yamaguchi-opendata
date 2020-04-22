@@ -224,5 +224,52 @@ SCHEMAS = {
                 }
             }
         }
+    },
+    "querents": {
+        "type": "object",
+        "required": [
+            "last_update",
+            "data"
+        ],
+        "properties": {
+            "last_update": {
+                "type": "string",
+                "default": ""
+            },
+            "data": {
+                "type": "array",
+                "default": [],
+                "items": {
+                    "type": "object",
+                    "default": {},
+                    "required": [
+                        "受付_年月日",
+                        "相談件数"
+                    ],
+                    "properties": {
+                        "受付_年月日": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "全国地方公共団体コード": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "都道府県名 ": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "市区町村名": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "相談件数": {
+                            "type": "integer",
+                            "default": ""
+                        },
+                    }
+                }
+            }
+        }
     }
 }
