@@ -7,7 +7,11 @@ REMOTE_SOURCES = {
     'inspections_people':{
         'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/2b48b14f-2221-4b42-9a7d-78ab89641d23/download/350001_yamaguchi_covid19_test_people.csv',
         'type':'csv'
-    }
+    },
+    'inspections':{
+        'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/21b7caeb-05b2-401b-8245-28757de8f444/download/350001_yamaguchi_covid19_test_count.csv',
+        'type':'csv'
+	}
 }
 
 #ヘッダーにkeyがあればvalueに置き換えます
@@ -19,6 +23,7 @@ HEADER_TRANSLATIONS = {
 INT_CAST_KEYS = [
     "No",
     "検査実施_人数 ",
+    "検査実施_件数",
 ]
 
 #先にある順にデコードされます
