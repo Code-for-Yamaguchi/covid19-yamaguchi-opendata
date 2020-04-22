@@ -23,8 +23,11 @@ class CovidDataManager:
     SCHEMAS = schemas.SCHEMAS
 
     def __init__(self):
+        now = datetime.datetime.now(self.JST)
+        self.now_str = now.strftime("%Y/%m/%d %H:%M")
+
         self.data = {
-            "last_update":datetime.datetime.now(self.JST).isoformat(),
+            "last_update":self.now_str,
         }
 
     def fetch_datas(self):
@@ -49,7 +52,7 @@ class CovidDataManager:
         datas = self.csvstr_to_dicts(f)
 
         return {
-            'last_update': datetime.datetime.now(self.JST).isoformat(),
+            'last_update': self.now_str,
             'data': datas
         }
 
@@ -130,7 +133,7 @@ class GraphData:
     def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
             os.makedirs(out_directory)
-        with open(origin_directory + "patients.json") as f:
+        with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
         data["data"] = out
@@ -138,13 +141,15 @@ class GraphData:
             json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_inspections(self, origin_directory='origin_data/', out_directory='data/'):
-        with open(origin_directory + "inspections.json") as f:
+        with open(origin_directory + "inspections.json", encoding='utf-8') as f:
             data = json.load(f)
-        with open("previous_data/inspections.json") as f:
+        with open("previous_data/inspections.json", encoding='utf-8') as f:
             prev_data = json.load(f)
         out = []
         for dic in data["data"]:
             dic["日付"] = dic.pop("実施年月日")
+            dic["日付"] = self.format_date(dic["日付"])
+            dic["日付"] += "T08:00:00.000Z"
             dic["小計"] = dic.pop("検査実施_件数")
             del_list = ['全国地方公共団体コード', '都道府県名', '市区町村名', '備考']
             [dic.pop(d) for d in del_list]
@@ -153,6 +158,12 @@ class GraphData:
         prev_data["last_update"] = data["last_update"]
         with open(out_directory+ self.outfile[2], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def format_date(self, date_str):
+        #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
+        date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
+
+        return date_dt.strftime("%Y-%m-%d")
 
 if __name__ == "__main__":
     gd = GraphData()
