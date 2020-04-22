@@ -6,10 +6,14 @@ SCHEMAS = {
     "patients": {
         "type": "object",
         "required": [
-            "data",
-            "last_update"
+            "last_update",
+            "data"
         ],
         "properties": {
+            "last_update": {
+                "type": "string",
+                "default": ""
+            },
             "data": {
                 "type": "array",
                 "default": [],
@@ -59,10 +63,57 @@ SCHEMAS = {
                         }
                     }
                 }
-            },
+            }
+        }
+    },
+    "inspections_people": {
+        "type": "object",
+        "required": [
+            "last_update",
+            "data"
+        ],
+        "properties": {
             "last_update": {
                 "type": "string",
                 "default": ""
+            },
+            "data": {
+                "type": "array",
+                "default": [],
+                "items": {
+                    "type": "object",
+                    "default": {},
+                    "required": [
+                        "実施_年月日",
+                        "検査実施_人数 "
+                    ],
+                    "properties": {
+                        "実施_年月日": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "全国地方公共団体コード": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "都道府県名 ": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "市区町村名 ": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "検査実施_人数 ": {
+                            "type": "integer",
+                            "default": ""
+                        },
+                        "備考": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                }
             }
         }
     }
