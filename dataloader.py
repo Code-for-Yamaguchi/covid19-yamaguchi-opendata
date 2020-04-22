@@ -100,12 +100,12 @@ class CovidDataManager:
         for key in self.data:
             jsonschema.validate(self.data[key], self.SCHEMAS[key])
 
-    def export_jsons(self, directory='data/'):
+    def export_jsons(self, directory='origin_data/'):
         for key in self.data:
             print(key + '.json')
             self.export_json_of(key, directory)
 
-    def export_json_of(self, key, directory='data/'):
+    def export_json_of(self, key, directory='origin_data/'):
         if not os.path.exists(directory):
             os.makedirs(directory)
         with open(directory + key + '.json', 'w', encoding='utf-8') as f:
