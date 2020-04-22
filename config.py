@@ -11,6 +11,10 @@ REMOTE_SOURCES = {
     'inspections':{
         'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/21b7caeb-05b2-401b-8245-28757de8f444/download/350001_yamaguchi_covid19_test_count.csv',
         'type':'csv'
+	},
+    'hospitalizations':{
+        'url':'https://yamaguchi-opendata.jp/ckan/dataset/f6e5cff9-ae43-4cd9-a398-085187277edf/resource/1a5f9bca-3216-45df-8a99-5c591df8f628/download/350001_yamaguchi_covid19_hospitalization.csv',
+        'type':'csv'
 	}
 }
 
@@ -24,6 +28,9 @@ INT_CAST_KEYS = [
     "No",
     "検査実施_人数 ",
     "検査実施_件数",
+    "入院",
+    "退院",
+    "死亡"
 ]
 
 #先にある順にデコードされます

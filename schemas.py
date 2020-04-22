@@ -167,5 +167,62 @@ SCHEMAS = {
                 }
             }
         }
+    },
+    "hospitalizations": {
+        "type": "object",
+        "required": [
+            "last_update",
+            "data"
+        ],
+        "properties": {
+            "last_update": {
+                "type": "string",
+                "default": ""
+            },
+            "data": {
+                "type": "array",
+                "default": [],
+                "items": {
+                    "type": "object",
+                    "default": {},
+                    "required": [
+                        "受付_年月日",
+                        "入院",
+                        "退院",
+                        "死亡"
+                    ],
+                    "properties": {
+                        "受付_年月日": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "全国地方公共団体コード": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "都道府県名 ": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "市区町村名": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "入院": {
+                            "type": "integer",
+                            "default": ""
+                        },
+                        "退院": {
+                            "type": "integer",
+                            "default": ""
+                        },
+                        "死亡": {
+                            "type": "integer",
+                            "default": ""
+                        },
+                    }
+                }
+            }
+        }
     }
 }
