@@ -51,8 +51,8 @@ class CovidDataManager:
         datas = self.csvstr_to_dicts(f)
 
         return {
-            'data': datas,
-            'last_update': datetime.datetime.now(self.JST).isoformat()
+            'last_update': datetime.datetime.now(self.JST).isoformat(),
+            'data': datas
         }
 
     #デコード出来るまでCODECS内全コーデックでトライする
