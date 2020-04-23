@@ -8,6 +8,7 @@ import jsonschema
 import config
 import schemas
 import sys
+import collections
 
 class CovidDataManager:
     #日本標準時
@@ -126,13 +127,25 @@ class GraphData:
         #print(origin_file_list)
 
     def main(self):
-        #self.generate_patients_cnt()
+        self.generate_patients_cnt()
         self.generate_patients()
         self.generate_inspections()
 
-    def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
+    def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
             os.makedirs(out_directory)
+        with open(origin_directory + "patients.json", encoding='utf-8') as f:
+            data = json.load(f)
+        with open("previous_data/patients_cnt.json", encoding='utf-8') as f:
+            prev_data = json.load(f)
+        prev_data["last_update"] = data["last_update"]
+
+        prev_data = self.add_patiennts_data(prev_data, data)
+
+        with open(out_directory+ self.outfile[0], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
@@ -164,6 +177,47 @@ class GraphData:
         date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
         return date_dt.strftime("%Y-%m-%d")
+
+    def add_patiennts_data(self, prev_data, data):
+        lastday = prev_data["data"][-1]["日付"][:10]
+        lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
+        today = datetime.date.today()	# timezoneはどうなるのか調査が必要
+        period = today - lastday
+        lastdata = prev_data["data"][-1]["小計"]
+        #print(data["data"])
+        #patients_daylist = [d.get('公表_年月日') for d in data["data"]]
+        daily_cnt = self.daily_patients(data["data"])
+        for d in range(period.days):
+            write_day = lastday + datetime.timedelta(days=d+1)
+            if write_day not in daily_cnt.keys():
+                print("今日の陽性患者はいません")
+                pat_num = 0
+            else:
+                pat_num = daily_cnt[write_day]
+            prev_data["data"].append(
+				{
+					"日付": write_day.strftime("%Y-%m-%d") + "T08:00:00.000Z",
+					"小計": pat_num
+				}
+			)
+            print(write_day)
+
+        return prev_data
+
+    def daily_patients(self, data):
+        date_list = []
+        for d in data:
+            date_str = d.get("公表_年月日")
+            dt = self.format_date(date_str)
+            dt = datetime.date(int(dt[:4]), int(dt[5:7]), int(dt[8:10]))
+            date_list.append(dt)
+        #print(daylist[0])
+        c = collections.Counter(date_list)
+        #print(c)
+        #print("="*30)
+        #print(datetime.date(2020, 4, 5) in c.keys())
+        #print(c.values())
+        return c
 
 if __name__ == "__main__":
     gd = GraphData()
