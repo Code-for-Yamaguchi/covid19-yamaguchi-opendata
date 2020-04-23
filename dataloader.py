@@ -131,6 +131,7 @@ class GraphData:
         self.generate_patients()
         self.generate_inspections()
         self.generate_hospitalizations()
+        self.generate_querents()
 
     def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -193,6 +194,29 @@ class GraphData:
         prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院"] + data2["data"][-1]["退院"]
 
         with open(out_directory+ self.outfile[3], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def generate_querents(self, origin_directory='origin_data/', out_directory='data/'):
+        with open(origin_directory + "querents.json", encoding='utf-8') as f:
+            data = json.load(f)
+        with open("previous_data/querents.json", encoding='utf-8') as f:
+            prev_data = json.load(f)
+        out = []
+        for dic in data["data"]:
+            dic["日付"] = dic.pop("受付_年月日")
+            dic["日付"] = self.format_date(dic["日付"])
+            dic["日付"] += "T08:00:00.000Z"
+            dic["小計"] = dic.pop("相談件数")
+            del_list = ['全国地方公共団体コード', ' 都道府県名', ' 市区町村名 ']
+            [dic.pop(d) for d in del_list]
+            out.append(dic)
+
+        prev_data["data"].extend(out)
+        # 昨日までのデータがない場合は暫定で最後のデータを入力
+        # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
+        prev_data = self.add_data(prev_data, data)
+        prev_data["last_update"] = data["last_update"]
+        with open(out_directory+ self.outfile[4], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def format_date(self, date_str):
