@@ -130,6 +130,8 @@ class GraphData:
         self.generate_patients_cnt()
         self.generate_patients()
         self.generate_inspections()
+        self.generate_hospitalizations()
+        self.generate_querents()
 
     def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -167,9 +169,54 @@ class GraphData:
             del_list = ['全国地方公共団体コード', '都道府県名', '市区町村名', '備考']
             [dic.pop(d) for d in del_list]
             out.append(dic)
+
         prev_data["data"].extend(out)
+        # 昨日までのデータがない場合は暫定で最後のデータを入力
+        # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
+        prev_data = self.add_data(prev_data, data)
         prev_data["last_update"] = data["last_update"]
         with open(out_directory+ self.outfile[2], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def generate_hospitalizations(self, origin_directory='origin_data/', out_directory='data/'):
+        with open(origin_directory + "inspections_people.json", encoding='utf-8') as f:
+            data = json.load(f)
+        with open(origin_directory + "hospitalizations.json", encoding='utf-8') as f:
+            data2 = json.load(f)
+        with open("previous_data/hospitalizations.json", encoding='utf-8') as f:
+            prev_data = json.load(f)
+
+        prev_data["data"][0]["日付"] = data2["last_update"]
+        prev_data["data"][0]["検査実施人数"] = data["data"][-1]["検査実施_人数 "]
+        prev_data["data"][0]["入院中"] = data2["data"][-1]["入院"]
+        prev_data["data"][0]["退院"] = data2["data"][-1]["退院"]
+        prev_data["data"][0]["死亡"] = data2["data"][-1]["死亡"]
+        prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院"] + data2["data"][-1]["退院"]
+
+        with open(out_directory+ self.outfile[3], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def generate_querents(self, origin_directory='origin_data/', out_directory='data/'):
+        with open(origin_directory + "querents.json", encoding='utf-8') as f:
+            data = json.load(f)
+        with open("previous_data/querents.json", encoding='utf-8') as f:
+            prev_data = json.load(f)
+        out = []
+        for dic in data["data"]:
+            dic["日付"] = dic.pop("受付_年月日")
+            dic["日付"] = self.format_date(dic["日付"])
+            dic["日付"] += "T08:00:00.000Z"
+            dic["小計"] = dic.pop("相談件数")
+            del_list = ['全国地方公共団体コード', ' 都道府県名', ' 市区町村名 ']
+            [dic.pop(d) for d in del_list]
+            out.append(dic)
+
+        prev_data["data"].extend(out)
+        # 昨日までのデータがない場合は暫定で最後のデータを入力
+        # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
+        prev_data = self.add_data(prev_data, data)
+        prev_data["last_update"] = data["last_update"]
+        with open(out_directory+ self.outfile[4], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def format_date(self, date_str):
@@ -183,14 +230,14 @@ class GraphData:
         lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
         today = datetime.date.today()	# timezoneはどうなるのか調査が必要
         period = today - lastday
-        lastdata = prev_data["data"][-1]["小計"]
-        #print(data["data"])
-        #patients_daylist = [d.get('公表_年月日') for d in data["data"]]
         daily_cnt = self.daily_patients(data["data"])
+        if period.days == 0:
+            if today in daily_cnt.keys():
+                prev_data["data"][-1]["小計"] = daily_cnt[today]
         for d in range(period.days):
             write_day = lastday + datetime.timedelta(days=d+1)
             if write_day not in daily_cnt.keys():
-                print("今日の陽性患者はいません")
+                print("この日の陽性患者はいません")
                 pat_num = 0
             else:
                 pat_num = daily_cnt[write_day]
@@ -218,6 +265,26 @@ class GraphData:
         #print(datetime.date(2020, 4, 5) in c.keys())
         #print(c.values())
         return c
+
+    def add_data(self, prev_data, data):
+        lastday = prev_data["data"][-1]["日付"][:10]
+        lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
+        today = datetime.date.today()	# timezoneはどうなるのか調査が必要
+        period = today - lastday
+        print(period.days)
+        if period.days == 1: # こちらの場合はorigin_dataが対応してない土日だけ考えれば良い
+            return prev_data
+        for d in range(1, period.days):
+            write_day = lastday + datetime.timedelta(days=d)
+            prev_data["data"].append(
+				{
+					"日付": write_day.strftime("%Y-%m-%d") + "T08:00:00.000Z",
+					"小計": prev_data["data"][-1]["小計"]
+				}
+			)
+            print(write_day)
+
+        return prev_data
 
 if __name__ == "__main__":
     gd = GraphData()
