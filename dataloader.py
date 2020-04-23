@@ -183,14 +183,14 @@ class GraphData:
         lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
         today = datetime.date.today()	# timezoneはどうなるのか調査が必要
         period = today - lastday
-        lastdata = prev_data["data"][-1]["小計"]
-        #print(data["data"])
-        #patients_daylist = [d.get('公表_年月日') for d in data["data"]]
         daily_cnt = self.daily_patients(data["data"])
+        if period.days == 0:
+            if today in daily_cnt.keys():
+                prev_data["data"][-1]["小計"] = daily_cnt[today]
         for d in range(period.days):
             write_day = lastday + datetime.timedelta(days=d+1)
             if write_day not in daily_cnt.keys():
-                print("今日の陽性患者はいません")
+                print("この日の陽性患者はいません")
                 pat_num = 0
             else:
                 pat_num = daily_cnt[write_day]
