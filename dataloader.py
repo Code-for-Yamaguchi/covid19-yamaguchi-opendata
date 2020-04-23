@@ -167,7 +167,11 @@ class GraphData:
             del_list = ['全国地方公共団体コード', '都道府県名', '市区町村名', '備考']
             [dic.pop(d) for d in del_list]
             out.append(dic)
+
         prev_data["data"].extend(out)
+        # 昨日までのデータがない場合は暫定で最後のデータを入力
+        # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
+        prev_data = self.add_data(prev_data, data)
         prev_data["last_update"] = data["last_update"]
         with open(out_directory+ self.outfile[2], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
@@ -218,6 +222,26 @@ class GraphData:
         #print(datetime.date(2020, 4, 5) in c.keys())
         #print(c.values())
         return c
+    
+    def add_data(self, prev_data, data):
+        lastday = prev_data["data"][-1]["日付"][:10]
+        lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
+        today = datetime.date.today()	# timezoneはどうなるのか調査が必要
+        period = today - lastday
+        print(period.days)
+        if period.days == 1: # こちらの場合はorigin_dataが対応してない土日だけ考えれば良い
+            return prev_data
+        for d in range(1, period.days):
+            write_day = lastday + datetime.timedelta(days=d)
+            prev_data["data"].append(
+				{
+					"日付": write_day.strftime("%Y-%m-%d") + "T08:00:00.000Z",
+					"小計": prev_data["data"][-1]["小計"]
+				}
+			)
+            print(write_day)
+
+        return prev_data
 
 if __name__ == "__main__":
     gd = GraphData()
