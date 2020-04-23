@@ -254,16 +254,11 @@ class GraphData:
     def daily_patients(self, data):
         date_list = []
         for d in data:
-            date_str = d.get("公表_年月日")
+            date_str = d.get("公表日")
             dt = self.format_date(date_str)
             dt = datetime.date(int(dt[:4]), int(dt[5:7]), int(dt[8:10]))
             date_list.append(dt)
-        #print(daylist[0])
         c = collections.Counter(date_list)
-        #print(c)
-        #print("="*30)
-        #print(datetime.date(2020, 4, 5) in c.keys())
-        #print(c.values())
         return c
 
     def add_data(self, prev_data, data):
@@ -271,7 +266,6 @@ class GraphData:
         lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
         today = datetime.date.today()	# timezoneはどうなるのか調査が必要
         period = today - lastday
-        print(period.days)
         if period.days == 1: # こちらの場合はorigin_dataが対応してない土日だけ考えれば良い
             return prev_data
         for d in range(1, period.days):

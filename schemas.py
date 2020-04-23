@@ -23,7 +23,7 @@ SCHEMAS = {
                     "required": [
                         "No",
                         "市区町村名",
-                        "公表_年月日",
+                        "公表日",
                         "患者_年代",
                         "患者_性別",
                         "備考"
@@ -45,7 +45,11 @@ SCHEMAS = {
                             "type": "string",
                             "default": ""
                         },
-                        "公表_年月日": {
+                        "陽性確定日": {
+                            "type": "string",
+                            "default": ""
+                        },
+                        "公表日": {
                             "type": "string",
                             "default": ""
                         },
