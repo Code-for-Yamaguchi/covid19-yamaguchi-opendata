@@ -130,6 +130,7 @@ class GraphData:
         self.generate_patients_cnt()
         self.generate_patients()
         self.generate_inspections()
+        self.generate_hospitalizations()
 
     def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -174,6 +175,24 @@ class GraphData:
         prev_data = self.add_data(prev_data, data)
         prev_data["last_update"] = data["last_update"]
         with open(out_directory+ self.outfile[2], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
+    def generate_hospitalizations(self, origin_directory='origin_data/', out_directory='data/'):
+        with open(origin_directory + "inspections_people.json", encoding='utf-8') as f:
+            data = json.load(f)
+        with open(origin_directory + "hospitalizations.json", encoding='utf-8') as f:
+            data2 = json.load(f)
+        with open("previous_data/hospitalizations.json", encoding='utf-8') as f:
+            prev_data = json.load(f)
+
+        prev_data["data"][0]["日付"] = data2["last_update"]
+        prev_data["data"][0]["検査実施人数"] = data["data"][-1]["検査実施_人数 "]
+        prev_data["data"][0]["入院中"] = data2["data"][-1]["入院"]
+        prev_data["data"][0]["退院"] = data2["data"][-1]["退院"]
+        prev_data["data"][0]["死亡"] = data2["data"][-1]["死亡"]
+        prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院"] + data2["data"][-1]["退院"]
+
+        with open(out_directory+ self.outfile[3], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def format_date(self, date_str):
@@ -222,7 +241,7 @@ class GraphData:
         #print(datetime.date(2020, 4, 5) in c.keys())
         #print(c.values())
         return c
-    
+
     def add_data(self, prev_data, data):
         lastday = prev_data["data"][-1]["日付"][:10]
         lastday = datetime.date(int(lastday[:4]), int(lastday[5:7]), int(lastday[8:10]))
