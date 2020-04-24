@@ -9,6 +9,7 @@ import config
 import schemas
 import sys
 import collections
+import shutil
 
 class CovidDataManager:
     #日本標準時
@@ -116,6 +117,7 @@ class CovidDataManager:
 class GraphData:
     def __init__(self):
         self.outfile = [
+            "last_update.json",
             "patients_cnt.json",
             "patients.json",
             "inspections.json",
@@ -127,11 +129,15 @@ class GraphData:
         #print(origin_file_list)
 
     def main(self):
+        self.generate_update()
         self.generate_patients_cnt()
         self.generate_patients()
         self.generate_inspections()
         self.generate_hospitalizations()
         self.generate_querents()
+
+    def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
+        shutil.copyfile(origin_directory+self.outfile[0], out_directory+self.outfile[0])
 
     def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -144,7 +150,7 @@ class GraphData:
 
         prev_data = self.add_patiennts_data(prev_data, data)
 
-        with open(out_directory+ self.outfile[0], 'w') as f:
+        with open(out_directory+ self.outfile[1], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
@@ -152,7 +158,7 @@ class GraphData:
             data = json.load(f)
         out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
         data["data"] = out
-        with open(out_directory+ self.outfile[1], 'w') as f:
+        with open(out_directory+ self.outfile[2], 'w') as f:
             json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_inspections(self, origin_directory='origin_data/', out_directory='data/'):
@@ -175,7 +181,7 @@ class GraphData:
         # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
         prev_data = self.add_data(prev_data, data)
         prev_data["last_update"] = data["last_update"]
-        with open(out_directory+ self.outfile[2], 'w') as f:
+        with open(out_directory+ self.outfile[3], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_hospitalizations(self, origin_directory='origin_data/', out_directory='data/'):
@@ -193,7 +199,7 @@ class GraphData:
         prev_data["data"][0]["死亡"] = data2["data"][-1]["死亡"]
         prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院"] + data2["data"][-1]["退院"]
 
-        with open(out_directory+ self.outfile[3], 'w') as f:
+        with open(out_directory+ self.outfile[4], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_querents(self, origin_directory='origin_data/', out_directory='data/'):
@@ -216,7 +222,7 @@ class GraphData:
         # 土日だけ抜けてるとめんどくさい...月曜に土日のデータもいれてほしい
         prev_data = self.add_data(prev_data, data)
         prev_data["last_update"] = data["last_update"]
-        with open(out_directory+ self.outfile[4], 'w') as f:
+        with open(out_directory+ self.outfile[5], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def format_date(self, date_str):
