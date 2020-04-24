@@ -119,7 +119,7 @@ class GraphData:
             "patients_cnt.json",
             "patients.json",
             "inspections.json",
-            "hosptitalizations.json",
+            "hospitalizations.json",
             "querents.json"
         ]
 
@@ -186,7 +186,7 @@ class GraphData:
         with open("previous_data/hospitalizations.json", encoding='utf-8') as f:
             prev_data = json.load(f)
 
-        prev_data["data"][0]["日付"] = data2["last_update"]
+        prev_data["last_update"] = data2["last_update"]
         prev_data["data"][0]["検査実施人数"] = data["data"][-1]["検査実施_人数 "]
         prev_data["data"][0]["入院中"] = data2["data"][-1]["入院"]
         prev_data["data"][0]["退院"] = data2["data"][-1]["退院"]
