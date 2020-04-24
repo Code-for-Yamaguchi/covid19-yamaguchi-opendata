@@ -162,6 +162,8 @@ class GraphData:
             dic["居住地"] = dic.pop("市区町村名")
             dic["年代"] = dic.pop("患者_年代")
             dic["性別"] = dic.pop("患者_性別")
+            dic["公表日"] = self.format_date(dic["公表日"]) + "T08:00:00.000Z"
+            dic["陽性確定日"] = self.format_date(dic["陽性確定日"]) + "T08:00:00.000Z"
             del_list = ['都道府県名', '全国地方公共団体コード']
             [dic.pop(d) for d in del_list]
             out.append(dic)
