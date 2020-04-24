@@ -156,7 +156,15 @@ class GraphData:
     def generate_patients(self, origin_directory='origin_data/', out_directory='data/'):
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
-        out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
+        #out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
+        out = []
+        for dic in data["data"]:
+            dic["居住地"] = dic.pop("市区町村名")
+            dic["年代"] = dic.pop("患者_年代")
+            dic["性別"] = dic.pop("患者_性別")
+            del_list = ['都道府県名', '全国地方公共団体コード']
+            [dic.pop(d) for d in del_list]
+            out.append(dic)
         data["data"] = out
         with open(out_directory+ self.outfile[2], 'w') as f:
             json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
