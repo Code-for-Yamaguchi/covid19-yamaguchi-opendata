@@ -137,11 +137,11 @@ class GraphData:
         self.generate_querents()
 
     def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
+        if not os.path.exists(out_directory):
+            os.makedirs(out_directory)
         shutil.copyfile(origin_directory+self.outfile[0], out_directory+self.outfile[0])
 
     def generate_patients_cnt(self, origin_directory='origin_data/', out_directory='data/'):
-        if not os.path.exists(out_directory):
-            os.makedirs(out_directory)
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         with open("previous_data/patients_cnt.json", encoding='utf-8') as f:
