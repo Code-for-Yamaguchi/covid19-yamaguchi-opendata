@@ -6,7 +6,7 @@
 
 ## Scheduling
 
-GitHub Actionsにより5分に1回、gh-pagesブランチのデータを更新しています
+GitHub Actionsにより15分に1回、gh-pagesブランチのデータを更新しています
 
 ## Output
 
