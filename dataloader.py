@@ -254,7 +254,7 @@ class GraphData:
             "美祢市", "周南市", "山陽小野田市", "周防大島町", "和木町", "上関町", "田布施町", "平生町", "阿武町"
         ]
         num_list = np.zeros(len(city_list), int).tolist()
-        city_dict = dict(zip(city_list, num_list))
+        city_dict = dict(zip(city_list, num_list))	# 各自治体の陽性患者人数のdictを作成
         for d in data["data"]:
             city_dict[d["市区町村名"]] += 1
         color_dict = city_dict.copy()
@@ -279,9 +279,21 @@ class GraphData:
             [131.17, 34.02], [132.21, 33.93], [132.21, 34.19], [132.08, 33.82], [132.03, 33.94], [132.08, 33.93], [131.56, 34.54]
         ]
         city_text = [
-            [130.78, 33.70], [131.18, 33.68], [131.30, 33.83], [131.26, 34.64], [131.40, 33.68], [131.60, 33.83],
-            [131.64, 33.68], [132.08, 34.56], [130.83, 34.60], [132.32, 34.32], [131.11, 34.52], [131.86, 34.50],
-            [130.92, 33.84], [132.30, 34.12], [132.24, 34.46], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.37, 34.66]
+            [130.78, 33.70], [131.18, 33.68], [131.30, 33.83], [131.26, 34.69], [131.40, 33.68], [131.60, 33.83],
+            [131.64, 33.68], [132.08, 34.57], [130.85, 34.65], [132.32, 34.35], [131.11, 34.56], [131.86, 34.54],
+            [130.92, 33.84], [132.32, 34.17], [132.24, 34.50], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.40, 34.71]
+        ]
+        city_text2 = [
+            [0.03, -0.05], [0.03, -0.05],
+            [0.03, -0.05], [0.01, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.03, -0.05], [0.01, -0.05],
+            [0.03, -0.05], [0.04, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.10, -0.05], [0.06, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.06, -0.05], [0.03, -0.05],
+            [0.03, -0.05]
         ]
         plt_line = [
             [[long_lat[0][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
@@ -304,10 +316,11 @@ class GraphData:
             [[long_lat[17][0]+x for x in np.arange(0, 0.28, 0.07)], [long_lat[17][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[18][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[18][1]+y for y in np.arange(0.0, 0.12, 0.03)]],
         ]
-        for fig,pline,cname,cplace in zip(long_lat, plt_line, city_list, city_text):
+        for fig,pline,cname,cplace,cplace2 in zip(long_lat, plt_line, city_list, city_text, city_text2):
             plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
             base.plot(pline[0], pline[1], color="black")
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
+            base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
         plt.savefig("yamaguchi-map.png")
         plt.show()
         #with open(out_directory+ self.outfile[2], 'w') as f:
