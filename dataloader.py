@@ -8,8 +8,18 @@ import jsonschema
 import config
 import schemas
 import sys
+import numpy as np
 import collections
 import shutil
+import geopandas as gpd
+import matplotlib
+import matplotlib.pyplot as plt
+import random
+from collections import Counter
+
+from matplotlib import rcParams
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
 
 class CovidDataManager:
     #日本標準時
@@ -122,7 +132,8 @@ class GraphData:
             "patients.json",
             "inspections.json",
             "hospitalizations.json",
-            "querents.json"
+            "querents.json",
+            "map_update.json"
         ]
 
         #origin_file_list = glob.glob("./origin_data/*.json")
@@ -135,6 +146,7 @@ class GraphData:
         self.generate_inspections()
         self.generate_hospitalizations()
         self.generate_querents()
+        self.generate_maps()
 
     def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -235,6 +247,101 @@ class GraphData:
         with open(out_directory+ self.outfile[5], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
+    def generate_maps(self, origin_directory='origin_data/', out_directory='data/'):
+        with open(origin_directory + "patients.json", encoding='utf-8') as f:
+            data = json.load(f)
+        city_list = [
+            "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "岩国市", "光市", "長門市", "柳井市",
+            "美祢市", "周南市", "山陽小野田市", "周防大島町", "和木町", "上関町", "田布施町", "平生町", "阿武町"
+        ]
+        num_list = np.zeros(len(city_list), int).tolist()
+        city_dict = dict(zip(city_list, num_list))	# 各自治体の陽性患者人数のdictを作成
+        for d in data["data"]:
+            city_dict[d["市区町村名"]] += 1
+        color_dict = city_dict.copy()
+        for key in city_dict.keys():
+            if city_dict[key] == 0:
+                color_dict[key] = "white"
+            elif city_dict[key] <= 2:
+                color_dict[key] = "#b0f2cb"
+            elif city_dict[key] <= 5:
+                color_dict[key] = "#56CF87"
+            elif city_dict[key] <= 10:
+                color_dict[key] = "#1AA854"
+            else:
+                color_dict[key] = "green"
+            #elif city_di
+            color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
+        print(color_num)
+
+        df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
+        #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
+        df = df[df["N03_004"].isin(city_list)]
+        base = df.plot(color="white", edgecolor="black")
+
+        # グラフの枠線を削除
+        base.axes.xaxis.set_visible(False)
+        base.axes.yaxis.set_visible(False)
+        plt.gca().spines['right'].set_visible(False)
+        plt.gca().spines['left'].set_visible(False)
+        plt.gca().spines['top'].set_visible(False)
+        plt.gca().spines['bottom'].set_visible(False)
+
+        for key in color_dict.keys():
+            df[df["N03_004"] == key].plot(ax=base, color=color_dict[key], edgecolor="black") # , color=color_dict[key] , cmap='Greens'
+        long_lat = [
+            [130.98, 34.08], [131.25, 33.98], [131.48, 34.13], [131.41, 34.38], [131.56, 34.05], [131.88, 34.02],
+            [132.13, 34.20], [131.95, 33.98], [131.18, 34.34], [132.12, 33.98], [131.21, 34.18], [131.80, 34.16],
+            [131.17, 34.02], [132.21, 33.93], [132.21, 34.19], [132.08, 33.82], [132.03, 33.94], [132.08, 33.93], [131.56, 34.54]
+        ]
+        city_text = [
+            [130.78, 33.70], [131.18, 33.68], [131.30, 33.83], [131.26, 34.69], [131.40, 33.68], [131.60, 33.83],
+            [131.64, 33.68], [132.08, 34.57], [130.85, 34.65], [132.32, 34.35], [131.11, 34.56], [131.86, 34.54],
+            [130.92, 33.84], [132.32, 34.17], [132.24, 34.50], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.40, 34.71]
+        ]
+        city_text2 = [
+            [0.03, -0.05], [0.03, -0.05],
+            [0.03, -0.05], [0.01, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.03, -0.05], [0.01, -0.05],
+            [0.03, -0.05], [0.04, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.10, -0.05], [0.06, -0.05],
+            [0.03, -0.05], [0.03, -0.05],
+            [0.06, -0.05], [0.03, -0.05],
+            [0.03, -0.05]
+        ]
+        plt_line = [
+            [[long_lat[0][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
+            [[long_lat[1][0]]*4, [long_lat[1][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[2][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[2][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[3][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[3][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[4][0]-x for x in np.arange(0, 0.08, 0.02)], [long_lat[4][1]-y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[5][0]-x for x in np.arange(0, 0.24, 0.06)], [long_lat[5][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
+            [[long_lat[6][0]]*4, [long_lat[6][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[7][0]-x for x in np.arange(0, 0.32, 0.08)], [long_lat[7][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[8][0]-x for x in np.arange(0, 0.32, 0.08)], [long_lat[8][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[9][0]+x for x in np.arange(0, 0.32, 0.08)], [long_lat[9][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[10][0]-x for x in np.arange(0, 0.02, 0.005)], [long_lat[10][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[11][0]+x for x in np.arange(0, 0.16, 0.04)], [long_lat[11][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[12][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[12][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
+            [[long_lat[13][0]+x for x in np.arange(0, 0.24, 0.06)], [long_lat[13][1]+y for y in np.arange(0.0, 0.24, 0.06)]],
+            [[long_lat[14][0]+x for x in np.arange(0, 0.12, 0.03)], [long_lat[14][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[15][0]+x for x in np.arange(0, 0.08, 0.02)], [long_lat[15][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
+            [[long_lat[16][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[16][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[17][0]+x for x in np.arange(0, 0.28, 0.07)], [long_lat[17][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[18][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[18][1]+y for y in np.arange(0.0, 0.12, 0.03)]],
+        ]
+        for fig,pline,cname,cplace,cplace2 in zip(long_lat, plt_line, city_list, city_text, city_text2):
+            #plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
+            base.plot(pline[0], pline[1], color="black", linewidth = 0.5)
+            base.text(cplace[0], cplace[1], cname, size=10, color="black")
+            base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
+        plt.savefig(out_directory+"yamaguchi-map.png")
+        #plt.show()
+        with open(out_directory+ self.outfile[6], 'w') as f:
+            json.dump(data["last_update"], f, ensure_ascii=False, indent=4, separators=(',', ': '))
+
     def format_date(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
         date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
@@ -295,6 +402,9 @@ class GraphData:
             print(write_day)
 
         return prev_data
+
+    def decide_color(self):
+        print("start")
 
 if __name__ == "__main__":
     gd = GraphData()
