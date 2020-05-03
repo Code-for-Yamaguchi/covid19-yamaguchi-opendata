@@ -260,7 +260,13 @@ class GraphData:
         color_dict = city_dict.copy()
         for key in city_dict.keys():
             if city_dict[key] == 0:
-                color_dict[key] = "grey"
+                color_dict[key] = "white"
+            elif city_dict[key] <= 2:
+                color_dict[key] = "#b0f2cb"
+            elif city_dict[key] <= 5:
+                color_dict[key] = "#56CF87"
+            elif city_dict[key] <= 10:
+                color_dict[key] = "#1AA854"
             else:
                 color_dict[key] = "green"
             #elif city_di
@@ -270,7 +276,7 @@ class GraphData:
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
         df = df[df["N03_004"].isin(city_list)]
-        base = df.plot(color="grey", edgecolor="black")
+        base = df.plot(color="white", edgecolor="black")
         for key in color_dict.keys():
             df[df["N03_004"] == key].plot(ax=base, color=color_dict[key], edgecolor="black") # , color=color_dict[key] , cmap='Greens'
         long_lat = [
@@ -317,7 +323,7 @@ class GraphData:
             [[long_lat[18][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[18][1]+y for y in np.arange(0.0, 0.12, 0.03)]],
         ]
         for fig,pline,cname,cplace,cplace2 in zip(long_lat, plt_line, city_list, city_text, city_text2):
-            plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
+            #plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
             base.plot(pline[0], pline[1], color="black")
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
