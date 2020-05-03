@@ -321,7 +321,7 @@ class GraphData:
             base.plot(pline[0], pline[1], color="black")
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
-        plt.savefig("yamaguchi-map.png")
+        plt.savefig(out_directory+"yamaguchi-map.png")
         plt.show()
         #with open(out_directory+ self.outfile[2], 'w') as f:
         #    json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
