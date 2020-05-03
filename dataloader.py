@@ -14,7 +14,6 @@ import shutil
 import geopandas as gpd
 import matplotlib
 import matplotlib.pyplot as plt
-import random
 from collections import Counter
 
 from matplotlib import rcParams
