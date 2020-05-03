@@ -277,6 +277,15 @@ class GraphData:
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
         df = df[df["N03_004"].isin(city_list)]
         base = df.plot(color="white", edgecolor="black")
+
+        # グラフの枠線を削除
+        base.axes.xaxis.set_visible(False)
+        base.axes.yaxis.set_visible(False)
+        plt.gca().spines['right'].set_visible(False)
+        plt.gca().spines['left'].set_visible(False)
+        plt.gca().spines['top'].set_visible(False)
+        plt.gca().spines['bottom'].set_visible(False)
+
         for key in color_dict.keys():
             df[df["N03_004"] == key].plot(ax=base, color=color_dict[key], edgecolor="black") # , color=color_dict[key] , cmap='Greens'
         long_lat = [
