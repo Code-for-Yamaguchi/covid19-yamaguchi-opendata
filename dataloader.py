@@ -132,7 +132,8 @@ class GraphData:
             "patients.json",
             "inspections.json",
             "hospitalizations.json",
-            "querents.json"
+            "querents.json",
+            "map_update.json"
         ]
 
         #origin_file_list = glob.glob("./origin_data/*.json")
@@ -337,9 +338,9 @@ class GraphData:
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
         plt.savefig(out_directory+"yamaguchi-map.png")
-        plt.show()
-        #with open(out_directory+ self.outfile[2], 'w') as f:
-        #    json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
+        #plt.show()
+        with open(out_directory+ self.outfile[6], 'w') as f:
+            json.dump(data["last_update"], f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def format_date(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
