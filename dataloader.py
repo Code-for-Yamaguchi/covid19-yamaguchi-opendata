@@ -249,44 +249,28 @@ class GraphData:
     def generate_maps(self, origin_directory='origin_data/', out_directory='data/'):
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
-        #out = [{elem:dic[elem] for elem in dic if not (elem in ['都道府県名', '全国地方公共団体コード'])} for dic in data["data"]]
         city_list = [
             "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "岩国市", "光市", "長門市", "柳井市",
             "美祢市", "周南市", "山陽小野田市", "周防大島町", "和木町", "上関町", "田布施町", "平生町", "阿武町"
         ]
         num_list = np.zeros(len(city_list), int).tolist()
         city_dict = dict(zip(city_list, num_list))
-        #print(city_dict)
-        #print(data["data"])
         for d in data["data"]:
             city_dict[d["市区町村名"]] += 1
         color_dict = city_dict.copy()
         for key in city_dict.keys():
             if city_dict[key] == 0:
                 color_dict[key] = "grey"
-            #elif city_di
             else:
-                color_dict[key] = "red"
+                color_dict[key] = "green"
+            #elif city_di
             color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
+        print(color_num)
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
-
-        #mini_df = df[df["N03_004"].isin(city_list)]
-        #print(df)
-        #print(df["geometry"])
-        #df[5:20].plot()
-        #plt.show()
         df = df[df["N03_004"].isin(city_list)]
-        #print(len(df), len(mini_df))
-        #print(df[:10])
-        #dic = []
-        #for city in df["N03_004"]:
-        #    dic.append(color_dict[city])
-        #df["num"] = dic
-        print(df)
         base = df.plot(color="grey", edgecolor="black")
-        #cities.plot(ax=base, color='red')
         for key in color_dict.keys():
             df[df["N03_004"] == key].plot(ax=base, color=color_dict[key], edgecolor="black") # , color=color_dict[key] , cmap='Greens'
         long_lat = [
@@ -299,7 +283,6 @@ class GraphData:
             [131.64, 33.68], [132.08, 34.56], [130.83, 34.60], [132.32, 34.32], [131.11, 34.52], [131.86, 34.50],
             [130.92, 33.84], [132.30, 34.12], [132.24, 34.46], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.37, 34.66]
         ]
-        #print([long_lat[0][1]-y for y in np.arange(0.1, 0.5, 0.1)])
         plt_line = [
             [[long_lat[0][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
             [[long_lat[1][0]]*4, [long_lat[1][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
@@ -321,53 +304,12 @@ class GraphData:
             [[long_lat[17][0]+x for x in np.arange(0, 0.28, 0.07)], [long_lat[17][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[18][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[18][1]+y for y in np.arange(0.0, 0.12, 0.03)]],
         ]
-        #for fig,pline in zip(long_lat,plt_line):
         for fig,pline,cname,cplace in zip(long_lat, plt_line, city_list, city_text):
             plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
             base.plot(pline[0], pline[1], color="black")
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
-        #df_copy = df.drop_duplicates(subset="N03_004")
-        #print(df_copy.centroid)
-        #df_copy.centroid.plot(ax=base, color="red")
-        plt.show()
-        #print(df.centroid[0])      # 各フィーチャーの重心
         plt.savefig("yamaguchi-map.png")
-        """
-        for i,d_city in enumerate(df["N03_004"]):
-            if cname != d_city:
-                df[i:i+1].plot(color=color, edgecolor='black')
-            cname = d_city
-            if d_city == "下関市":
-                color = "red"
-            else:
-                color = "white"
-        df[0:].plot()
-        """
-        #plt.show()
-        """
-        df["target"] = [random.random() for i in range(df.shape[0])]
-        mini_df = df[df["N03_004"].isin(city_list)]
-        print(mini_df)
-        print(mini_df.columns)
-        num_color, cmap, norm = self.colors_scale(mini_df["target"])
-        mini_df.plot(color=num_color, figsize=(10,6))
-        sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
-        plt.colorbar(sm)
         plt.show()
-        """
-        #print(df)
-        #print(len(df_shp.index))    # フィーチャー総数
-        #print(df_shp.head())        # 上位数行表示
-        """
-        print(df_shp.columns)        # propertyタグ一覧(geometry含む)
-        print(df_shp.total_bounds)  # 全体の緯度経度矩形情報（numpy）
-        print(df_shp.count())       # 各propertyごとの，値が入っているフィーチャー総数
-        # (下記メソッドは上のgeomに対しても適用化)
-        print(df_shp.geom_type)     # 各フィーチャーの種別
-        print(df_shp.area)          # 各フィーチャーの面積
-        print(df_shp.length)        # 各フィーチャーの周長
-        print(df_shp.centroid)      # 各フィーチャーの重心
-        """
         #with open(out_directory+ self.outfile[2], 'w') as f:
         #    json.dump(data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
