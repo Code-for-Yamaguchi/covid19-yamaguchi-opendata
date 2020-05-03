@@ -333,7 +333,7 @@ class GraphData:
         ]
         for fig,pline,cname,cplace,cplace2 in zip(long_lat, plt_line, city_list, city_text, city_text2):
             #plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
-            base.plot(pline[0], pline[1], color="black")
+            base.plot(pline[0], pline[1], color="black", linewidth = 0.5)
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
         plt.savefig(out_directory+"yamaguchi-map.png")
