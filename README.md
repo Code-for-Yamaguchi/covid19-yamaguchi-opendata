@@ -15,7 +15,7 @@ Json APIで提供しています。
 |Content|Source|Json API|
 |:---|:---|:---|
 |最終更新日|なし|[last_update.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/last_update.json)|
-|陽性患者数|[山口県公式サイト](https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202004240001.html)|[news.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/news.json)|
+|最新のお知らせ|[山口県公式サイト](https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202004240001.html)|[news.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/news.json)|
 |陽性患者数|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[patients_cnt.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/patients_cnt.json)|
 |陽性患者の属性|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[patients.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/patients.json)|
 |検査実施件数|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/21b7caeb-05b2-401b-8245-28757de8f444)|[inspections.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/inspections.json)|
