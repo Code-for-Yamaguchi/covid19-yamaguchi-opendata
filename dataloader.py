@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup
 import re
 import feedparser
 import locale
+import calendar
 
 from matplotlib import rcParams
 rcParams['font.family'] = 'sans-serif'
@@ -48,7 +49,7 @@ class CovidDataManager:
 
     def fetch_datas(self):
         for key in self.REMOTE_SOURCES:
-            print(key)
+            #print(key)
             datatype = self.REMOTE_SOURCES[key]['type']
             dataurl = self.REMOTE_SOURCES[key]['url']
             data = {}
@@ -276,9 +277,8 @@ class GraphData:
                 color_dict[key] = "#1AA854"
             else:
                 color_dict[key] = "green"
-            #elif city_di
             color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
-        print(color_num)
+        #print(color_num)
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
@@ -357,7 +357,7 @@ class GraphData:
         pat_date,pat_num = self.new_patients(pat_url)
         newinfo = self.new_info(newinfo_url)
 
-        pat_dt = datetime.datetime(int(pat_date[:4]), int(pat_date[5:7]), int(1))
+        pat_dt = datetime.datetime(int(pat_date[:4]), int(pat_date[5:7]), int(pat_date[8:]))
         insert_index = 0
         for info in newinfo:
             info_dt = datetime.datetime(int(info[0][:4]), int(info[0][5:7]), int(info[0][8:]))
@@ -393,17 +393,28 @@ class GraphData:
     def format_date2(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
         date_dt = datetime.datetime.strptime(str(datetime.date.today().year)+"年"+date_str, "%Y年%m月%d日")
-        print(date_dt)
 
         return date_dt.strftime("%Y/%m/%d")
 
     def format_date3(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
-        locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')	# 英語表記なのでロケールを変更
-        date_dt = datetime.datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %Z")
-        print(date_dt)
+        #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')	# 英語表記なのでロケールを変更
+        #date_dt = datetime.datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %Z")
+        # Sat, 2 May 2020 10:00:00 JST
+        #date_str = re.findall(r'[0-9]{1,2} ', date_str)
+        date_strlist = date_str.split(" ")[1:4]
 
-        return date_dt.strftime("%Y/%m/%d")
+        months = {
+			"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06",
+			"Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"
+		}
+
+        if len(date_strlist[0]) == 1:
+            date_day = "0" + date_strlist[0]
+        else:
+            date_day = date_strlist[0]
+
+        return date_strlist[2]+"/"+months[date_strlist[1]]+"/"+date_day
 
     def add_patiennts_data(self, prev_data, data):
         lastday = prev_data["data"][-1]["日付"][:10]
@@ -417,7 +428,7 @@ class GraphData:
         for d in range(period.days):
             write_day = lastday + datetime.timedelta(days=d+1)
             if write_day not in daily_cnt.keys():
-                print("この日の陽性患者はいません")
+                #print("この日の陽性患者はいません")
                 pat_num = 0
             else:
                 pat_num = daily_cnt[write_day]
@@ -427,7 +438,7 @@ class GraphData:
 					"小計": pat_num
 				}
 			)
-            print(write_day)
+            #print(write_day)
 
         return prev_data
 
@@ -456,7 +467,7 @@ class GraphData:
 					"小計": prev_data["data"][-1]["小計"]
 				}
 			)
-            print(write_day)
+            #print(write_day)
 
         return prev_data
 
@@ -474,10 +485,10 @@ class GraphData:
 
         return patients_date, patients_num
 
-    # RSSを用いて最新の2件のデータを取得
+    # RSSを用いて最新の3件のデータを取得
     def new_info(self, url):
         rss = feedparser.parse(url)
-        entries_data = rss.entries[:3]	# 新しい2件のデータを取得
+        entries_data = rss.entries[:3]	# 新しい3件のデータを取得
         #newdata = []
         #for i in entries_data:
         #    newdata.append([self.format_date3(i.published), i.link, self.delete_date(i.title)])
