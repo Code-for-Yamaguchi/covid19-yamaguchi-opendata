@@ -261,17 +261,17 @@ class GraphData:
         for key in city_dict.keys():
             if city_dict[key] == 0:
                 color_dict[key] = "white"
-            elif city_dict[key] <= 2:
-                color_dict[key] = "#b0f2cb"
             elif city_dict[key] <= 5:
-                color_dict[key] = "#56CF87"
+                color_dict[key] = "#b8f1d5"
             elif city_dict[key] <= 10:
-                color_dict[key] = "#1AA854"
+                color_dict[key] = "#23b16a"
+            elif city_dict[key] <= 15:
+                color_dict[key] = "#156a40"
+            elif color_dict[key] <= 20:
+                color_dict[key] = "#0e472b"
             else:
-                color_dict[key] = "green"
-            #elif city_di
-            color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
-        print(color_num)
+                color_dict[key] = "#031e11"
+            #color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
