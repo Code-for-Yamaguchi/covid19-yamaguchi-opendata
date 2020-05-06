@@ -15,6 +15,7 @@ import geopandas as gpd
 import matplotlib
 import matplotlib.pyplot as plt
 from collections import Counter
+import japanize_matplotlib
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -22,9 +23,6 @@ import feedparser
 import locale
 import calendar
 
-from matplotlib import rcParams
-rcParams['font.family'] = 'sans-serif'
-rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
 
 class CovidDataManager:
     #日本標準時
@@ -269,16 +267,17 @@ class GraphData:
         for key in city_dict.keys():
             if city_dict[key] == 0:
                 color_dict[key] = "white"
-            elif city_dict[key] <= 2:
-                color_dict[key] = "#b0f2cb"
             elif city_dict[key] <= 5:
-                color_dict[key] = "#56CF87"
+                color_dict[key] = "#b8f1d5"
             elif city_dict[key] <= 10:
-                color_dict[key] = "#1AA854"
+                color_dict[key] = "#23b16a"
+            elif city_dict[key] <= 15:
+                color_dict[key] = "#156a40"
+            elif color_dict[key] <= 20:
+                color_dict[key] = "#0e472b"
             else:
-                color_dict[key] = "green"
-            color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
-        #print(color_num)
+                color_dict[key] = "#031e11"
+            #color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
         #df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.geojson', encoding='SHIFT-JIS')
@@ -303,19 +302,19 @@ class GraphData:
         city_text = [
             [130.78, 33.70], [131.18, 33.68], [131.30, 33.83], [131.26, 34.69], [131.40, 33.68], [131.60, 33.83],
             [131.64, 33.68], [132.08, 34.57], [130.85, 34.65], [132.32, 34.35], [131.11, 34.56], [131.86, 34.54],
-            [130.92, 33.84], [132.32, 34.17], [132.24, 34.50], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.40, 34.71]
+            [130.92, 33.84], [132.32, 34.19], [132.24, 34.50], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.40, 34.71]
         ]
         city_text2 = [
-            [0.03, -0.05], [0.03, -0.05],
-            [0.03, -0.05], [0.01, -0.05],
-            [0.03, -0.05], [0.03, -0.05],
-            [0.03, -0.05], [0.01, -0.05],
-            [0.03, -0.05], [0.04, -0.05],
-            [0.03, -0.05], [0.03, -0.05],
-            [0.10, -0.05], [0.06, -0.05],
-            [0.03, -0.05], [0.03, -0.05],
-            [0.06, -0.05], [0.03, -0.05],
-            [0.03, -0.05]
+            [0.03, -0.06], [0.03, -0.06],
+            [0.03, -0.06], [0.01, -0.06],
+            [0.03, -0.06], [0.03, -0.06],
+            [0.03, -0.06], [0.01, -0.06],
+            [0.03, -0.06], [0.04, -0.06],
+            [0.03, -0.06], [0.03, -0.06],
+            [0.10, -0.06], [0.06, -0.06],
+            [0.03, -0.06], [0.03, -0.06],
+            [0.06, -0.06], [0.03, -0.06],
+            [0.03, -0.06]
         ]
         plt_line = [
             [[long_lat[0][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
@@ -342,7 +341,8 @@ class GraphData:
             #plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
             base.plot(pline[0], pline[1], color="black", linewidth = 0.5)
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
-            base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=9.5, color="dimgrey")
+            #base.text(cplace[0], cplace[1]-0.03, "ー"*len(cname), size=10, color="black")
+            base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=11, color="black")
         plt.savefig(out_directory+"yamaguchi-map.png")
         #plt.show()
         with open(out_directory+ self.outfile[6], 'w') as f:
