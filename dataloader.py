@@ -151,7 +151,7 @@ class GraphData:
         self.generate_hospitalizations()
         self.generate_querents()
         self.generate_maps()
-        self.generate_news()
+        #self.generate_news()
 
     def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -352,7 +352,7 @@ class GraphData:
         with open("previous_data/"+self.outfile[7], encoding='utf-8') as f:
             prev_data = json.load(f)
 
-        pat_url = "https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202004240001.html"
+        pat_url = "https://www.pref.yamaguchi.lg.jp/cms/a10000/korona2020/202004240002.html"
         newinfo_url = "https://www.pref.yamaguchi.lg.jp/press/rss.xml"
         pat_date,pat_num = self.new_patients(pat_url)
         newinfo = self.new_info(newinfo_url)
@@ -475,9 +475,10 @@ class GraphData:
         res = requests.get(url)
         res.encoding = res.apparent_encoding	# 日本語文字化け対応
         soup = BeautifulSoup(res.text, 'html.parser')
-        out = soup.find('p', class_="mn1").get_text()
+        out = soup.find('span', class_="fs3").get_text()
         lists = re.findall(r'[1-9][0-9]*', out)
         patients_num = max(lists)
+        #print(out, patients_num)
 
         out2 = soup.find('h2', class_="mn0").get_text()
         lists = re.findall(r'[1-9][0-9]?月[1-9][0-9]?日', out2)
