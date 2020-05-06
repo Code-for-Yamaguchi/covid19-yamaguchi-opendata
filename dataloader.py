@@ -15,10 +15,7 @@ import geopandas as gpd
 import matplotlib
 import matplotlib.pyplot as plt
 from collections import Counter
-
-from matplotlib import rcParams
-rcParams['font.family'] = 'sans-serif'
-rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
+import japanize_matplotlib
 
 class CovidDataManager:
     #日本標準時
