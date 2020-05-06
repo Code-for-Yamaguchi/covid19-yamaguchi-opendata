@@ -16,6 +16,13 @@ import matplotlib
 import matplotlib.pyplot as plt
 from collections import Counter
 import japanize_matplotlib
+import requests
+from bs4 import BeautifulSoup
+import re
+import feedparser
+import locale
+import calendar
+
 
 class CovidDataManager:
     #日本標準時
@@ -40,7 +47,7 @@ class CovidDataManager:
 
     def fetch_datas(self):
         for key in self.REMOTE_SOURCES:
-            print(key)
+            #print(key)
             datatype = self.REMOTE_SOURCES[key]['type']
             dataurl = self.REMOTE_SOURCES[key]['url']
             data = {}
@@ -129,7 +136,8 @@ class GraphData:
             "inspections.json",
             "hospitalizations.json",
             "querents.json",
-            "map_update.json"
+            "map_update.json",
+            "news.json"
         ]
 
         #origin_file_list = glob.glob("./origin_data/*.json")
@@ -143,6 +151,7 @@ class GraphData:
         self.generate_hospitalizations()
         self.generate_querents()
         self.generate_maps()
+        self.generate_news()
 
     def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -339,11 +348,73 @@ class GraphData:
         with open(out_directory+ self.outfile[6], 'w') as f:
             json.dump(data["last_update"], f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
+    def generate_news(self, origin_directory='origin_data/', out_directory='data/'):
+        with open("previous_data/"+self.outfile[7], encoding='utf-8') as f:
+            prev_data = json.load(f)
+
+        pat_url = "https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202004240001.html"
+        newinfo_url = "https://www.pref.yamaguchi.lg.jp/press/rss.xml"
+        pat_date,pat_num = self.new_patients(pat_url)
+        newinfo = self.new_info(newinfo_url)
+
+        pat_dt = datetime.datetime(int(pat_date[:4]), int(pat_date[5:7]), int(pat_date[8:]))
+        insert_index = 0
+        for info in newinfo:
+            info_dt = datetime.datetime(int(info[0][:4]), int(info[0][5:7]), int(info[0][8:]))
+            if pat_dt < info_dt:
+                insert_index += 1
+            date, url, text = info
+            prev_data["newsItems"].append(
+				{
+					"date": date,
+					"url": url,
+					"text": text
+				}
+			)
+
+        prev_data["newsItems"].insert(
+            insert_index,
+			{
+				"date": pat_date,
+				"url": pat_url,
+				"text": "山口県内で"+str(pat_num)+"例目となる新型コロナウイルス感染症の感染者を確認"
+			}
+		)
+
+        with open(out_directory+ self.outfile[7], 'w') as f:
+            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
+
     def format_date(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
         date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
         return date_dt.strftime("%Y-%m-%d")
+
+    def format_date2(self, date_str):
+        #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
+        date_dt = datetime.datetime.strptime(str(datetime.date.today().year)+"年"+date_str, "%Y年%m月%d日")
+
+        return date_dt.strftime("%Y/%m/%d")
+
+    def format_date3(self, date_str):
+        #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
+        #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')	# 英語表記なのでロケールを変更
+        #date_dt = datetime.datetime.strptime(date_str, "%a, %d %b %Y %H:%M:%S %Z")
+        # Sat, 2 May 2020 10:00:00 JST
+        #date_str = re.findall(r'[0-9]{1,2} ', date_str)
+        date_strlist = date_str.split(" ")[1:4]
+
+        months = {
+			"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06",
+			"Jul": "07", "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"
+		}
+
+        if len(date_strlist[0]) == 1:
+            date_day = "0" + date_strlist[0]
+        else:
+            date_day = date_strlist[0]
+
+        return date_strlist[2]+"/"+months[date_strlist[1]]+"/"+date_day
 
     def add_patiennts_data(self, prev_data, data):
         lastday = prev_data["data"][-1]["日付"][:10]
@@ -357,7 +428,7 @@ class GraphData:
         for d in range(period.days):
             write_day = lastday + datetime.timedelta(days=d+1)
             if write_day not in daily_cnt.keys():
-                print("この日の陽性患者はいません")
+                #print("この日の陽性患者はいません")
                 pat_num = 0
             else:
                 pat_num = daily_cnt[write_day]
@@ -367,7 +438,7 @@ class GraphData:
 					"小計": pat_num
 				}
 			)
-            print(write_day)
+            #print(write_day)
 
         return prev_data
 
@@ -396,12 +467,40 @@ class GraphData:
 					"小計": prev_data["data"][-1]["小計"]
 				}
 			)
-            print(write_day)
+            #print(write_day)
 
         return prev_data
 
-    def decide_color(self):
-        print("start")
+    def new_patients(self, url):
+        res = requests.get(url)
+        res.encoding = res.apparent_encoding	# 日本語文字化け対応
+        soup = BeautifulSoup(res.text, 'html.parser')
+        out = soup.find('p', class_="mn1").get_text()
+        lists = re.findall(r'[1-9][0-9]*', out)
+        patients_num = max(lists)
+
+        out2 = soup.find('h2', class_="mn0").get_text()
+        lists = re.findall(r'[1-9][0-9]?月[1-9][0-9]?日', out2)
+        patients_date = self.format_date2(lists[0])
+
+        return patients_date, patients_num
+
+    # RSSを用いて最新の3件のデータを取得
+    def new_info(self, url):
+        rss = feedparser.parse(url)
+        entries_data = rss.entries[:3]	# 新しい3件のデータを取得
+        #newdata = []
+        #for i in entries_data:
+        #    newdata.append([self.format_date3(i.published), i.link, self.delete_date(i.title)])
+
+        newdata = [[self.format_date3(i.published), i.link, self.delete_date(i.title)] for i in entries_data]
+
+        return newdata
+
+    def delete_date(self, text):
+        out = re.sub(r'（[1-9][0-9]?月[1-9][0-9]?日）', '', text)
+
+        return out
 
 if __name__ == "__main__":
     gd = GraphData()
