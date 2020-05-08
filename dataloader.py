@@ -257,7 +257,7 @@ class GraphData:
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         city_list = [
-            "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "岩国市", "光市", "長門市", "柳井市",
+            "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "光市", "岩国市", "長門市", "柳井市",
             "美祢市", "周南市", "山陽小野田市", "周防大島町", "和木町", "上関町", "田布施町", "平生町", "阿武町"
         ]
         num_list = np.zeros(len(city_list), int).tolist()
