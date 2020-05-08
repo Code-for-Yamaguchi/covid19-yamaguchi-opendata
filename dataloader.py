@@ -14,6 +14,7 @@ import shutil
 import geopandas as gpd
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 from collections import Counter
 import japanize_matplotlib
 import requests
@@ -257,11 +258,12 @@ class GraphData:
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         city_list = [
-            "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "岩国市", "光市", "長門市", "柳井市",
+            "下関市", "宇部市", "山口市", "萩市", "防府市", "下松市", "光市", "岩国市", "長門市", "柳井市",
             "美祢市", "周南市", "山陽小野田市", "周防大島町", "和木町", "上関町", "田布施町", "平生町", "阿武町"
         ]
         num_list = np.zeros(len(city_list), int).tolist()
         city_dict = dict(zip(city_list, num_list))	# 各自治体の陽性患者人数のdictを作成
+        heat_colorlist = ["#b8f1d5", "#23b16a", "#156a40", "#0e472b", "#031e11"]
         for d in data["data"]:
             city_dict[d["市区町村名"]] += 1
         color_dict = city_dict.copy()
@@ -344,7 +346,17 @@ class GraphData:
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             #base.text(cplace[0], cplace[1]-0.03, "ー"*len(cname), size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=11, color="black")
-        plt.savefig(out_directory+"yamaguchi-map.png")
+
+        base.text(131.88, 35.20, "陽性患者数【人】", size=12, color="black")
+        base.add_patch(patches.Rectangle(xy=(131.80, 34.63), width=0.70, height=0.55, ec="black", fill=False))
+        for i,heat in enumerate(heat_colorlist):
+            base.add_patch(patches.Rectangle(xy=(131.83, 35.05-i*0.1), width=0.25, height=0.1, fc=heat, ec="black", fill=True))
+            if i == 4:
+                base.text(132.10, 35.05-i*0.1+0.03, "・・・"+str(5*(i+1))+"以上")
+            else:
+                base.text(132.10, 35.05-i*0.1+0.03, "・・・"+str(5*i+1)+"-"+str(5*(i+1)))
+
+        plt.savefig(out_directory+"yamaguchi-map.png", bbox_inches='tight')
         #plt.show()
         with open(out_directory+ self.outfile[6], 'w') as f:
             json.dump(data["last_update"], f, ensure_ascii=False, indent=4, separators=(',', ': '))
