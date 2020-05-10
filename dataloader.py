@@ -388,34 +388,33 @@ class GraphData:
     def generate_eqal_news(self, origin_directory='origin_data/', out_directory='data/'):
         with open("previous_data/"+self.outfile[7], encoding='utf-8') as f:
             prev_data = json.load(f)
-            
-        news_list = [
+
+        newinfo_url = "https://www.pref.yamaguchi.lg.jp/press/rss.xml"
+        newinfo = self.new_info(newinfo_url)
+
+        pat_dt = datetime.datetime(int(2020), int(5), int(5))
+        insert_index = 0
+        for info in newinfo:
+            info_dt = datetime.datetime(int(info[0][:4]), int(info[0][5:7]), int(info[0][8:]))
+            if pat_dt < info_dt:
+                insert_index += 1
+            date, url, text = info
+            prev_data["newsItems"].append(
+				{
+					"date": date,
+					"url": url,
+					"text": text
+				}
+			)
+
+        prev_data["newsItems"].insert(
+            insert_index,
 			{
-                "date": "2020/05/06",
-                "text": "新型コロナウイルス感染症緊急事態宣言の延長に伴う協力要請等について",
-                "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046144.html"
-            },
-            {
-                "date": "2020/05/06",
-                "text": "新型コロナウイルス発生に伴う県有施設の休館等について",
-                "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046145.html"
-            },
-            {
                 "date": "2020/05/05",
                 "text": "山口県内で37例目となる新型コロナウイルス感染症の感染者を確認",
                 "url": "https://www.pref.yamaguchi.lg.jp/cms/a15200/kansensyou/202004240001.html"
-            },
-            {
-                "date": "2020/05/02",
-                "text": "医療従事者等への感謝の気持ちを表す「ブルーライトアップ」の実施について",
-                "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046140.html"
             }
-		]
-
-        for news in news_list:
-            prev_data["newsItems"].append(
-                news
-		    )
+		)
 
         with open(out_directory+ self.outfile[7], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
