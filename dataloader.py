@@ -299,55 +299,55 @@ class GraphData:
             df[df["N03_004"] == key].plot(ax=base, color=color_dict[key], edgecolor="black") # , color=color_dict[key] , cmap='Greens'
         long_lat = [
             [130.98, 34.08], [131.25, 33.98], [131.48, 34.13], [131.41, 34.38], [131.56, 34.05], [131.88, 34.02],
-            [132.13, 34.20], [131.95, 33.98], [131.18, 34.34], [132.12, 33.98], [131.21, 34.18], [131.80, 34.16],
-            [131.17, 34.02], [132.21, 33.93], [132.21, 34.19], [132.08, 33.82], [132.03, 33.94], [132.08, 33.93], [131.56, 34.54]
+            [132.08, 34.20], [131.95, 33.98], [131.18, 34.34], [132.12, 33.98], [131.21, 34.18], [131.80, 34.16],
+            [131.17, 34.02], [132.25, 33.92], [132.21, 34.19], [132.04, 33.82], [132.03, 33.94], [132.08, 33.93], [131.56, 34.54]
         ]
         city_text = [
-            [130.78, 33.70], [131.18, 33.68], [131.30, 33.83], [131.26, 34.69], [131.40, 33.68], [131.60, 33.83],
-            [131.64, 33.68], [132.08, 34.57], [130.85, 34.65], [132.32, 34.35], [131.11, 34.56], [131.86, 34.54],
-            [130.92, 33.84], [132.32, 34.19], [132.24, 34.50], [132.06, 33.65], [131.80, 33.65], [132.24, 33.65], [131.40, 34.71]
+            [130.70, 33.70], [131.16, 33.66], [131.29, 33.82], [131.26, 34.72], [131.41, 33.66], [131.56, 33.82],
+            [131.64, 33.66], [132.08, 34.57], [130.82, 34.67], [132.32, 34.35], [131.09, 34.58], [131.82, 34.54],
+            [130.86, 33.82], [132.32, 34.19], [132.28, 34.53], [132.065, 33.62], [131.80, 33.62], [132.28, 33.62], [131.40, 34.78]
         ]
         city_text2 = [
-            [0.03, -0.06], [0.03, -0.06],
-            [0.03, -0.06], [0.01, -0.06],
-            [0.03, -0.06], [0.03, -0.06],
-            [0.03, -0.06], [0.01, -0.06],
-            [0.03, -0.06], [0.04, -0.06],
-            [0.03, -0.06], [0.03, -0.06],
-            [0.10, -0.06], [0.06, -0.06],
-            [0.03, -0.06], [0.03, -0.06],
-            [0.06, -0.06], [0.03, -0.06],
-            [0.03, -0.06]
+            [0.04, -0.07], [0.04, -0.07],
+            [0.04, -0.07], [0.00, -0.07],
+            [0.04, -0.07], [0.04, -0.07],
+            [0.00, -0.07], [0.04, -0.07],
+            [0.04, -0.07], [0.04, -0.07],
+            [0.04, -0.07], [0.04, -0.07],
+            [0.13, -0.07], [0.10, -0.07],
+            [0.04, -0.07], [0.04, -0.07],
+            [0.07, -0.07], [0.04, -0.07],
+            [0.04, -0.07]
         ]
         plt_line = [
-            [[long_lat[0][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
+            [[long_lat[0][0]-x for x in np.arange(0, 0.24, 0.06)], [long_lat[0][1]-y for y in np.arange(0, 0.4, 0.1)]],
             [[long_lat[1][0]]*4, [long_lat[1][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[2][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[2][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[3][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[3][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[4][0]-x for x in np.arange(0, 0.08, 0.02)], [long_lat[4][1]-y for y in np.arange(0.0, 0.40, 0.10)]],
-            [[long_lat[5][0]-x for x in np.arange(0, 0.24, 0.06)], [long_lat[5][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
-            [[long_lat[6][0]]*4, [long_lat[6][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
-            [[long_lat[7][0]-x for x in np.arange(0, 0.32, 0.08)], [long_lat[7][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[5][0]-x for x in np.arange(0, 0.28, 0.07)], [long_lat[5][1]-y for y in np.arange(0.0, 0.18, 0.045)]],
+            [[long_lat[6][0]+x for x in np.arange(0, 0.12, 0.03)], [long_lat[6][1]+y for y in np.arange(0.0, 0.36, 0.09)]],
+            [[long_lat[7][0]-x for x in np.arange(0, 0.32, 0.08)], [long_lat[7][1]-y for y in np.arange(0.0, 0.36, 0.09)]],
             [[long_lat[8][0]-x for x in np.arange(0, 0.32, 0.08)], [long_lat[8][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
             [[long_lat[9][0]+x for x in np.arange(0, 0.32, 0.08)], [long_lat[9][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
             [[long_lat[10][0]-x for x in np.arange(0, 0.02, 0.005)], [long_lat[10][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
-            [[long_lat[11][0]+x for x in np.arange(0, 0.16, 0.04)], [long_lat[11][1]+y for y in np.arange(0.0, 0.40, 0.10)]],
+            [[long_lat[11][0]+x for x in np.arange(0, 0.14, 0.035)], [long_lat[11][1]+y for y in np.arange(0.0, 0.38, 0.095)]],
             [[long_lat[12][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[12][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
-            [[long_lat[13][0]+x for x in np.arange(0, 0.24, 0.06)], [long_lat[13][1]+y for y in np.arange(0.0, 0.24, 0.06)]],
-            [[long_lat[14][0]+x for x in np.arange(0, 0.12, 0.03)], [long_lat[14][1]+y for y in np.arange(0.0, 0.32, 0.08)]],
-            [[long_lat[15][0]+x for x in np.arange(0, 0.08, 0.02)], [long_lat[15][1]-y for y in np.arange(0.0, 0.16, 0.04)]],
-            [[long_lat[16][0]-x for x in np.arange(0, 0.16, 0.04)], [long_lat[16][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
-            [[long_lat[17][0]+x for x in np.arange(0, 0.28, 0.07)], [long_lat[17][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
-            [[long_lat[18][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[18][1]+y for y in np.arange(0.0, 0.12, 0.03)]],
+            [[long_lat[13][0]+x for x in np.arange(0, 0.28, 0.07)], [long_lat[13][1]+y for y in np.arange(0.0, 0.24, 0.06)]],
+            [[long_lat[14][0]+x for x in np.arange(0, 0.16, 0.04)], [long_lat[14][1]+y for y in np.arange(0.0, 0.34, 0.085)]],
+            [[long_lat[15][0]+x for x in np.arange(0, 0.14, 0.035)], [long_lat[15][1]-y for y in np.arange(0.0, 0.18, 0.045)]],
+            [[long_lat[16][0]-x for x in np.arange(0, 0.12, 0.03)], [long_lat[16][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[17][0]+x for x in np.arange(0, 0.36, 0.09)], [long_lat[17][1]-y for y in np.arange(0.0, 0.32, 0.08)]],
+            [[long_lat[18][0]-x for x in np.arange(0, 0.08, 0.02)], [long_lat[18][1]+y for y in np.arange(0.0, 0.18, 0.045)]],
         ]
         for fig,pline,cname,cplace,cplace2 in zip(long_lat, plt_line, city_list, city_text, city_text2):
             #plt.plot(fig[0], fig[1], marker='.', color="blue", markersize=6)
-            base.plot(pline[0], pline[1], color="black", linewidth = 0.5)
+            base.plot(pline[0], pline[1], color="black", linewidth = 0.8)
             base.text(cplace[0], cplace[1], cname, size=10, color="black")
             #base.text(cplace[0], cplace[1]-0.03, "ー"*len(cname), size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"例", size=11, color="black")
 
-        base.text(131.88, 35.30, "陽性患者数【人】", size=12, color="black")
+        base.text(131.88, 35.30, "陽性患者数【例】", size=12, color="black")
         base.add_patch(patches.Rectangle(xy=(131.80, 34.70), width=0.71, height=0.55, ec="black", fill=False))
         for i,heat in enumerate(heat_colorlist):
             base.add_patch(patches.Rectangle(xy=(131.83, 35.12-i*0.1), width=0.25, height=0.1, fc=heat, ec="black", fill=True))
