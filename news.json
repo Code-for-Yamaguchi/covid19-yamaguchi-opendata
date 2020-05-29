@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2020/05/29",
+            "text": "共英製鋼株式会社からのアイソレーションガウンの寄附受領について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046283.html"
+        },
+        {
+            "date": "2020/05/29",
             "text": "大日本住友製薬株式会社からのフェイスシールドの寄附受領について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046264.html"
         },
@@ -10,11 +15,6 @@
             "date": "2020/05/29",
             "text": "山口県環境審議会委員の公募について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046263.html"
-        },
-        {
-            "date": "2020/05/29",
-            "text": "ツキノワグマの捕獲について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202005/046266.html"
         },
         {
             "date": "2020/05/05",
