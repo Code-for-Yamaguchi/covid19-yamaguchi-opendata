@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2020/07/12",
+            "text": "消防学校での消防職員初任総合教育の学生の死亡事故について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046541.html"
+        },
+        {
+            "date": "2020/07/12",
             "text": "県道油田港線の通行止め解除の見込みについて",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046531.html"
         },
@@ -10,11 +15,6 @@
             "date": "2020/07/11",
             "text": "令和２年７月３日からの大雨による被災自治体への県職員の派遣について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046527.html"
-        },
-        {
-            "date": "2020/07/11",
-            "text": "「山口県公立大学法人評価委員会」(第３７回）の開催について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046522.html"
         },
         {
             "date": "2020/05/05",
