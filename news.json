@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2020/07/27",
+            "text": "新型コロナウイルス感染症患者の発生について（第４８例目、第４９例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046653.html"
+        },
+        {
             "date": "2020/07/25",
             "text": "新型コロナウイルス感染症患者の発生等について （第44例目・第46例目の追加情報）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046652.html"
@@ -10,11 +15,6 @@
             "date": "2020/07/24",
             "text": "新型コロナウイルス感染症患者の発生について（第４４例目、第４５例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046650.html"
-        },
-        {
-            "date": "2020/07/24",
-            "text": "新型コロナウイルス感染症患者の発生等について （第46例目・第47例目の発生及び第44例目・第45例目の追加情報）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202007/046651.html"
         },
         {
             "date": "2020/07/23",
