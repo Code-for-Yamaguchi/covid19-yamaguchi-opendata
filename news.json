@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2020/08/17",
+            "text": "新型コロナウイルス感染症患者の発生について（第83例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202008/046796.html"
+        },
+        {
+            "date": "2020/08/17",
             "text": "県立萩美術館・浦上記念館浦上敏朗名誉館長の逝去について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202008/046789.html"
         },
@@ -10,11 +15,6 @@
             "date": "2020/08/15",
             "text": "国が購入した医療用物資について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202008/046787.html"
-        },
-        {
-            "date": "2020/08/15",
-            "text": "新型コロナウイルス感染症患者の発生について（第82例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202008/046788.html"
         },
         {
             "date": "2020/08/14",
