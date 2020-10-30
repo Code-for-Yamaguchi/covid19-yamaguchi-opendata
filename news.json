@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2020/10/29",
+            "text": "「人事委員会勧告についての知事談話」について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202010/047406.html"
+        },
+        {
+            "date": "2020/10/29",
             "text": "令和２年１１月県内スポーツ行事",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202010/047384.html"
         },
@@ -10,11 +15,6 @@
             "date": "2020/10/29",
             "text": "ＣＯ２削減に向けた宅配ロッカーのモニター事業について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202010/047391.html"
-        },
-        {
-            "date": "2020/10/29",
-            "text": "ちょるるの新たなダンス曲の公開について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202010/047390.html"
         },
         {
             "date": "2020/10/23",
