@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2020/11/30",
+            "text": "新型コロナウイルス感染症患者の発生等について（第384～386例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202011/047704.html"
+        },
+        {
             "date": "2020/11/29",
             "text": "新型コロナウイルス感染症患者の発生について（第375例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202011/047703.html"
@@ -10,11 +15,6 @@
             "date": "2020/11/29",
             "text": "新型コロナウイルス感染症患者の発生等について（第376～383例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202011/047705.html"
-        },
-        {
-            "date": "2020/11/28",
-            "text": "令和２年１２月県内スポーツ行事",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202011/047694.html"
         },
         {
             "date": "2020/11/27",
