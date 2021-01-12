@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/01/11",
+            "text": "県職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048028.html"
+        },
+        {
             "date": "2021/01/10",
             "text": "県立学校の教職員の感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048027.html"
@@ -10,11 +15,6 @@
             "date": "2021/01/09",
             "text": "全国知事会「第１５回新型コロナウイルス緊急対策本部」の開催について （第２報）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048023.html"
-        },
-        {
-            "date": "2021/01/09",
-            "text": "新型コロナウイルス感染症患者の発生について（第659例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048020.html"
         },
         {
             "date": "2021/01/04",
