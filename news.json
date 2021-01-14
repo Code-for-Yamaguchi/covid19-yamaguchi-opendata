@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2021/01/14",
+            "text": "九州地方知事会（臨時ＷＥＢ会議）の開催について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048061.html"
+        },
+        {
+            "date": "2021/01/14",
             "text": "新型コロナウイルス感染症患者（９０歳代・男性）の死亡について（５例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048052.html"
         },
@@ -10,11 +15,6 @@
             "date": "2021/01/14",
             "text": "新型コロナウイルス感染症患者の発生等について（第732～744例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048054.html"
-        },
-        {
-            "date": "2021/01/14",
-            "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048065.html"
         },
         {
             "date": "2021/01/12",
