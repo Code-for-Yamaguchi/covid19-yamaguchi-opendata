@@ -3,18 +3,18 @@
     "newsItems": [
         {
             "date": "2021/01/18",
+            "text": "新型コロナウイルス感染症患者の発生について（第828～835例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048091.html"
+        },
+        {
+            "date": "2021/01/18",
+            "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048092.html"
+        },
+        {
+            "date": "2021/01/18",
             "text": "新型コロナウイルス感染症患者の発生等について（第819～827例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048093.html"
-        },
-        {
-            "date": "2021/01/17",
-            "text": "新型コロナウイルス感染症患者の発生等について（第782～807例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048084.html"
-        },
-        {
-            "date": "2021/01/16",
-            "text": "オードリー・タン大臣とのオンライン特別対談について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202101/048079.html"
         },
         {
             "date": "2021/01/16",
