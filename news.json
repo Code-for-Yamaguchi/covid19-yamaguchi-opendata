@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2021/02/24",
+            "text": "新型コロナウイルス感染症患者の発生について（1372例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202102/048383.html"
+        },
+        {
+            "date": "2021/02/24",
             "text": "県立学校の臨時休業について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202102/048381.html"
         },
@@ -10,11 +15,6 @@
             "date": "2021/02/23",
             "text": "オードリー・タン大臣とのオンライン特別対談動画の掲載について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202102/048379.html"
-        },
-        {
-            "date": "2021/02/23",
-            "text": "令和２年度消防団等地域活動表彰の受賞決定について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202102/048380.html"
         },
         {
             "date": "2021/02/19",
