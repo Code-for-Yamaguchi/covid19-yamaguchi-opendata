@@ -450,9 +450,9 @@ class GraphData:
         prev_data["newsItems"].insert(
             insert_index,
 			{
-                "date": "2021/03/03",
-                "text": "新型コロナウイルス感染症の山口県内での発生等について（第1387例目（下関市第231例目）：3月3日下関市14時00分）",
-                "url": "http://www.city.shimonoseki.lg.jp/www/contents/1611626031628/index.html"
+                "date": "2021/03/19",
+                "text": "新型コロナウイルス感染症の山口県内での発生等について（第1399例目：3月19日15時00分）",
+                "url": "https://www.pref.yamaguchi.lg.jp/cmsdata/d/6/8/d6878d0b6be456d0dc8e7391d21fb499.pdf"
             }
 		)
 
