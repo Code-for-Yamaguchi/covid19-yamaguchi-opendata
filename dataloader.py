@@ -514,10 +514,13 @@ class GraphData:
     # RSSを用いて最新の4件のデータを取得
     def new_info(self, url):
         rss = feedparser.parse(url)
-        entries_data = rss.entries[:4]	# 新しい4件のデータを取得
-        #newdata = []
-        #for i in entries_data:
-        #    newdata.append([self.format_date3(i.published), i.link, self.delete_date(i.title)])
+        entries_data = []
+        for entry in rss.entries:
+            title = entry.title
+            word = "新型コロナウイルス" # ワクチンの場合もあるので'感染症'までは含めない
+            if word in title:
+                entries_data.append(entry)
+                if len(entries_data) == 4: break
 
         newdata = [[self.format_date3(i.published), i.link, self.delete_date(i.title)] for i in entries_data]
 
