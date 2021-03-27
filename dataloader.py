@@ -154,8 +154,7 @@ class GraphData:
         self.generate_hospitalizations()
         self.generate_querents()
         self.generate_maps()
-        #self.generate_news()
-        self.generate_eqal_news()
+        self.generate_news()
 
     def generate_update(self, origin_directory='origin_data/', out_directory='data/'):
         if not os.path.exists(out_directory):
@@ -393,17 +392,10 @@ class GraphData:
         with open("previous_data/"+self.outfile[8], encoding='utf-8') as f:
             prev_data = json.load(f)
 
-        pat_url = "https://www.pref.yamaguchi.lg.jp/cms/a10000/korona2020/202004240002.html"
         newinfo_url = "https://www.pref.yamaguchi.lg.jp/press/rss.xml"
-        pat_date,pat_num = self.new_patients(pat_url)
         newinfo = self.new_info(newinfo_url)
 
-        pat_dt = datetime.datetime(int(pat_date[:4]), int(pat_date[5:7]), int(pat_date[8:]))
-        insert_index = 0
         for info in newinfo:
-            info_dt = datetime.datetime(int(info[0][:4]), int(info[0][5:7]), int(info[0][8:]))
-            if pat_dt < info_dt:
-                insert_index += 1
             date, url, text = info
             prev_data["newsItems"].append(
 				{
@@ -412,49 +404,6 @@ class GraphData:
 					"text": text
 				}
 			)
-
-        prev_data["newsItems"].insert(
-            insert_index,
-			{
-				"date": pat_date,
-				"url": pat_url,
-				"text": "山口県内で"+str(pat_num)+"例目となる新型コロナウイルス感染症の感染者を確認"
-			}
-		)
-
-        with open(out_directory+ self.outfile[8], 'w') as f:
-            json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
-
-    def generate_eqal_news(self, origin_directory='origin_data/', out_directory='data/'):
-        with open("previous_data/"+self.outfile[8], encoding='utf-8') as f:
-            prev_data = json.load(f)
-
-        newinfo_url = "https://www.pref.yamaguchi.lg.jp/press/rss.xml"
-        newinfo = self.new_info(newinfo_url)
-
-        pat_dt = datetime.datetime(int(2020), int(5), int(5))
-        insert_index = 0
-        for info in newinfo:
-            info_dt = datetime.datetime(int(info[0][:4]), int(info[0][5:7]), int(info[0][8:]))
-            if pat_dt < info_dt:
-                insert_index += 1
-            date, url, text = info
-            prev_data["newsItems"].append(
-				{
-					"date": date,
-					"url": url,
-					"text": text
-				}
-			)
-
-        prev_data["newsItems"].insert(
-            insert_index,
-			{
-                "date": "2021/03/19",
-                "text": "新型コロナウイルス感染症の山口県内での発生等について（第1399例目：3月19日15時00分）",
-                "url": "https://www.pref.yamaguchi.lg.jp/cmsdata/d/6/8/d6878d0b6be456d0dc8e7391d21fb499.pdf"
-            }
-		)
 
         with open(out_directory+ self.outfile[8], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
@@ -562,10 +511,10 @@ class GraphData:
 
         return patients_date, patients_num
 
-    # RSSを用いて最新の3件のデータを取得
+    # RSSを用いて最新の4件のデータを取得
     def new_info(self, url):
         rss = feedparser.parse(url)
-        entries_data = rss.entries[:3]	# 新しい3件のデータを取得
+        entries_data = rss.entries[:4]	# 新しい4件のデータを取得
         #newdata = []
         #for i in entries_data:
         #    newdata.append([self.format_date3(i.published), i.link, self.delete_date(i.title)])
