@@ -289,7 +289,7 @@ class GraphData:
         ]
         num_list = np.zeros(len(city_list), int).tolist()
         city_dict = dict(zip(city_list, num_list))	# 各自治体の陽性患者人数のdictを作成
-        heat_colorlist = ["#b8f1d5", "#23b16a", "#156a40", "#0e472b", "#031e11"]
+        heat_colorlist = ["#DCF8DC", "#95EA95", "#2BD52B", "#1D8D1D", "#0E470E"]
         for d in data["data"]:
             if d["市区町村名"] in city_dict: city_dict[d["市区町村名"]] += 1
             else: continue
@@ -298,15 +298,15 @@ class GraphData:
             if city_dict[key] == 0:
                 color_dict[key] = "white"
             elif city_dict[key] <= 10:
-                color_dict[key] = "#b8f1d5"
+                color_dict[key] = "#DCF8DC"
             elif city_dict[key] <= 20:
-                color_dict[key] = "#23b16a"
+                color_dict[key] = "#95EA95"
             elif city_dict[key] <= 30:
-                color_dict[key] = "#156a40"
+                color_dict[key] = "#2BD52B"
             elif color_dict[key] <= 40:
-                color_dict[key] = "#0e472b"
+                color_dict[key] = "#1D8D1D"
             else:
-                color_dict[key] = "#031e11"
+                color_dict[key] = "#0E470E"
             #color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
