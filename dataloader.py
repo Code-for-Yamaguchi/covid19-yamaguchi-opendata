@@ -289,7 +289,7 @@ class GraphData:
         ]
         num_list = np.zeros(len(city_list), int).tolist()
         city_dict = dict(zip(city_list, num_list))	# 各自治体の陽性患者人数のdictを作成
-        heat_colorlist = ["#b8f1d5", "#23b16a", "#156a40", "#0e472b", "#031e11"]
+        heat_colorlist = ["#DCF8DC", "#95EA95", "#2BD52B", "#1D8D1D", "#0E470E"]
         for d in data["data"]:
             if d["市区町村名"] in city_dict: city_dict[d["市区町村名"]] += 1
             else: continue
@@ -297,16 +297,16 @@ class GraphData:
         for key in city_dict.keys():
             if city_dict[key] == 0:
                 color_dict[key] = "white"
-            elif city_dict[key] <= 10:
-                color_dict[key] = "#b8f1d5"
-            elif city_dict[key] <= 20:
-                color_dict[key] = "#23b16a"
-            elif city_dict[key] <= 30:
-                color_dict[key] = "#156a40"
-            elif color_dict[key] <= 40:
-                color_dict[key] = "#0e472b"
+            elif city_dict[key] <= 50:
+                color_dict[key] = "#DCF8DC"
+            elif city_dict[key] <= 100:
+                color_dict[key] = "#95EA95"
+            elif city_dict[key] <= 150:
+                color_dict[key] = "#2BD52B"
+            elif color_dict[key] <= 200:
+                color_dict[key] = "#1D8D1D"
             else:
-                color_dict[key] = "#031e11"
+                color_dict[key] = "#0E470E"
             #color_num = (city_dict[key] - min(city_dict.values())) / (max(city_dict.values()) - min(city_dict.values()))
 
         df = gpd.read_file('./N03-190101_35_GML/N03-19_35_190101.shp', encoding='SHIFT-JIS')
@@ -335,15 +335,15 @@ class GraphData:
             [130.86, 33.82], [132.32, 34.19], [132.28, 34.53], [132.065, 33.62], [131.80, 33.62], [132.28, 33.62], [131.40, 34.78]
         ]
         city_text2 = [
+            [0.00, -0.07], [0.00, -0.07],
+            [-0.01, -0.07], [0.01, -0.07],
+            [0.03, -0.07], [0.02, -0.07],
+            [-0.01, -0.07], [0.00, -0.07],
+            [0.03, -0.07], [0.04, -0.07],
+            [0.03, -0.07], [0.00, -0.07],
+            [0.10, -0.07], [0.10, -0.07],
             [0.04, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.00, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.00, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.13, -0.07], [0.10, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.07, -0.07], [0.04, -0.07],
+            [0.06, -0.07], [0.04, -0.07],
             [0.04, -0.07]
         ]
         plt_line = [
@@ -374,14 +374,14 @@ class GraphData:
             #base.text(cplace[0], cplace[1]-0.03, "ー"*len(cname), size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"人", size=11, color="black")
 
-        base.text(131.88, 35.30, "陽性患者数【人】", size=12, color="black")
-        base.add_patch(patches.Rectangle(xy=(131.80, 34.70), width=0.71, height=0.55, ec="black", fill=False))
+        base.text(131.92, 35.30, "陽性患者数【人】", size=12, color="black")
+        base.add_patch(patches.Rectangle(xy=(131.80, 34.70), width=0.81, height=0.55, ec="black", fill=False))
         for i,heat in enumerate(heat_colorlist):
             base.add_patch(patches.Rectangle(xy=(131.83, 35.12-i*0.1), width=0.25, height=0.1, fc=heat, ec="black", fill=True))
             if i == 4:
-                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(10*i+1)+"以上")
+                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(50*i+1)+"以上")
             else:
-                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(10*i+1)+"-"+str(10*(i+1)))
+                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(50*i+1)+"-"+str(50*(i+1)))
 
         plt.savefig(out_directory+"yamaguchi-map.png", bbox_inches='tight')
         #plt.show()
