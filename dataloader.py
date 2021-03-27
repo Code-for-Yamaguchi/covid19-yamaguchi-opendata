@@ -335,15 +335,15 @@ class GraphData:
             [130.86, 33.82], [132.32, 34.19], [132.28, 34.53], [132.065, 33.62], [131.80, 33.62], [132.28, 33.62], [131.40, 34.78]
         ]
         city_text2 = [
+            [0.00, -0.07], [0.00, -0.07],
+            [-0.01, -0.07], [0.01, -0.07],
+            [0.03, -0.07], [0.02, -0.07],
+            [-0.01, -0.07], [0.00, -0.07],
+            [0.03, -0.07], [0.04, -0.07],
+            [0.03, -0.07], [0.00, -0.07],
+            [0.10, -0.07], [0.10, -0.07],
             [0.04, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.00, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.00, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.13, -0.07], [0.10, -0.07],
-            [0.04, -0.07], [0.04, -0.07],
-            [0.07, -0.07], [0.04, -0.07],
+            [0.06, -0.07], [0.04, -0.07],
             [0.04, -0.07]
         ]
         plt_line = [
@@ -374,8 +374,8 @@ class GraphData:
             #base.text(cplace[0], cplace[1]-0.03, "ー"*len(cname), size=10, color="black")
             base.text(cplace[0]+cplace2[0], cplace[1]+cplace2[1], str(city_dict[cname])+"人", size=11, color="black")
 
-        base.text(131.88, 35.30, "陽性患者数【人】", size=12, color="black")
-        base.add_patch(patches.Rectangle(xy=(131.80, 34.70), width=0.71, height=0.55, ec="black", fill=False))
+        base.text(131.92, 35.30, "陽性患者数【人】", size=12, color="black")
+        base.add_patch(patches.Rectangle(xy=(131.80, 34.70), width=0.81, height=0.55, ec="black", fill=False))
         for i,heat in enumerate(heat_colorlist):
             base.add_patch(patches.Rectangle(xy=(131.83, 35.12-i*0.1), width=0.25, height=0.1, fc=heat, ec="black", fill=True))
             if i == 4:
