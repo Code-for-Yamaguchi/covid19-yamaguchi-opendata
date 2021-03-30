@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/03/30",
+            "text": "新型コロナウイルス感染症陽性患者の受入病床の拡充について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048664.html"
+        },
+        {
+            "date": "2021/03/30",
+            "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048665.html"
+        },
+        {
+            "date": "2021/03/30",
+            "text": "新型コロナウイルス感染症患者の発生等について（第1409～1411例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048666.html"
+        },
+        {
             "date": "2021/03/29",
             "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048654.html"
-        },
-        {
-            "date": "2021/03/28",
-            "text": "新型コロナウイルス感染症患者の発生等について（第1406～1408例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048652.html"
-        },
-        {
-            "date": "2021/03/27",
-            "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048636.html"
-        },
-        {
-            "date": "2021/03/26",
-            "text": "新型コロナウイルス感染症患者の発生等について（第1405例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048632.html"
         }
     ]
 }
