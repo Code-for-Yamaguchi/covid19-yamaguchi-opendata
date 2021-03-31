@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/03/31",
+            "text": "新型コロナウイルス感染症に関する全国知事会と国との意見交換会",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048676.html"
+        },
+        {
+            "date": "2021/03/31",
+            "text": "新型コロナウイルス感染症患者の発生等について（第1412～1417例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048678.html"
+        },
+        {
+            "date": "2021/03/31",
+            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048679.html"
+        },
+        {
             "date": "2021/03/30",
             "text": "新型コロナウイルス感染症陽性患者の受入病床の拡充について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048664.html"
-        },
-        {
-            "date": "2021/03/30",
-            "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048665.html"
-        },
-        {
-            "date": "2021/03/30",
-            "text": "新型コロナウイルス感染症患者の発生等について（第1409～1411例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048666.html"
-        },
-        {
-            "date": "2021/03/29",
-            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048654.html"
         }
     ]
 }
