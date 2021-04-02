@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2021/04/02",
+            "text": "全国知事会「第１９回新型コロナウイルス緊急対策本部」の開催について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048699.html"
+        },
+        {
+            "date": "2021/04/02",
             "text": "新型コロナウイルス感染症患者の発生等について（第1421～1423例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048706.html"
         },
@@ -15,11 +20,6 @@
             "date": "2021/04/01",
             "text": "新型コロナウイルス感染症患者の発生等について（第1418～1420例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048693.html"
-        },
-        {
-            "date": "2021/04/01",
-            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048694.html"
         }
     ]
 }
