@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/04/02",
+            "text": "新型コロナウイルス感染症患者の発生等について（第1421～1423例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048706.html"
+        },
+        {
             "date": "2021/04/01",
             "text": "新型コロナウイルス感染症患者について（米軍岩国基地関連）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048692.html"
@@ -15,11 +20,6 @@
             "date": "2021/04/01",
             "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048694.html"
-        },
-        {
-            "date": "2021/03/31",
-            "text": "新型コロナウイルス感染症に関する全国知事会と国との意見交換会",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202103/048676.html"
         }
     ]
 }
