@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/04/06",
+            "text": "新型コロナウイルス感染症患者の発生について（1441例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048728.html"
+        },
+        {
             "date": "2021/04/05",
             "text": "全国知事会 「第４波の到来を受けた今後の新型コロナウイルス感染症対策についての緊急提言」及び「新型コロナ「第４波危機」をみんなで抑えよう宣言」の取りまとめについて",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048720.html"
@@ -15,11 +20,6 @@
             "date": "2021/04/05",
             "text": "新型コロナウイルス感染症患者の発生等について（第1438、1439例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048717.html"
-        },
-        {
-            "date": "2021/04/05",
-            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048718.html"
         }
     ]
 }
