@@ -8,6 +8,11 @@
         },
         {
             "date": "2021/04/19",
+            "text": "新型コロナウイルス変異株のゲノム解析の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048827.html"
+        },
+        {
+            "date": "2021/04/19",
             "text": "新型コロナウイルス感染症患者の発生等について（第1543～1555例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048828.html"
         },
@@ -15,11 +20,6 @@
             "date": "2021/04/18",
             "text": "新型コロナウイルス感染症患者の発生等について（第1506～1540例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048825.html"
-        },
-        {
-            "date": "2021/04/17",
-            "text": "新型コロナウイルス感染症患者の発生について（第1503～1505例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048822.html"
         }
     ]
 }
