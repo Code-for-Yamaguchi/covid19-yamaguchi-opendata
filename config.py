@@ -27,7 +27,6 @@ HEADER_TRANSLATIONS = {
 INT_CAST_KEYS = [
     "No",
     "検査実施_人数 ",
-    "検査実施_件数",
     "入院",
     "退院",
     "死亡",
