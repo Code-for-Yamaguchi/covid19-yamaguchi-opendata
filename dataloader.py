@@ -149,7 +149,6 @@ class GraphData:
         self.generate_update()
         self.generate_patients_cnt()
         self.generate_patients()
-        self.generate_inspections()
         self.generate_inspections_person()
         self.generate_hospitalizations()
         self.generate_querents()
