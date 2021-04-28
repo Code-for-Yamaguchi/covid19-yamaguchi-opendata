@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/04/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第1747～1767例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048926.html"
+        },
+        {
+            "date": "2021/04/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第1728～1746例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048927.html"
+        },
+        {
             "date": "2021/04/27",
             "text": "新型コロナウイルス感染症に係る、ゴールデンウイークにおける帰省者等への注意喚起ポスターの掲示について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048921.html"
@@ -10,16 +20,6 @@
             "date": "2021/04/27",
             "text": "新型コロナウイルス感染症患者の発生について（第1726、1727例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048909.html"
-        },
-        {
-            "date": "2021/04/27",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1722～1725例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048910.html"
-        },
-        {
-            "date": "2021/04/26",
-            "text": "新型コロナウイルス感染症患者の発生について（第1709～1721例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048901.html"
         }
     ]
 }
