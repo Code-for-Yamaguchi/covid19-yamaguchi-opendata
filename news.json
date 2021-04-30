@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/04/30",
+            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048944.html"
+        },
+        {
             "date": "2021/04/29",
             "text": "中国地方知事会新型コロナウイルス感染症対策本部会議（第９回）の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048937.html"
@@ -15,11 +20,6 @@
             "date": "2021/04/29",
             "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048933.html"
-        },
-        {
-            "date": "2021/04/29",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1768～1787例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048938.html"
         }
     ]
 }
