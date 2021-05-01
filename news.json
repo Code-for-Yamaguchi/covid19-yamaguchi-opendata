@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/01",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第1827～1837例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048948.html"
+        },
+        {
             "date": "2021/04/30",
             "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048944.html"
@@ -15,11 +20,6 @@
             "date": "2021/04/30",
             "text": "新型コロナウイルス感染症の感染者の発生について（第1822～1826例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048946.html"
-        },
-        {
-            "date": "2021/04/30",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1794～1821例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048947.html"
         }
     ]
 }
