@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2021/05/01",
+            "text": "新型コロナウイルス感染症に関する全国知事会と国との意見交換会",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048972.html"
+        },
+        {
+            "date": "2021/05/01",
             "text": "新型コロナウイルス感染症の感染者の発生について（第1827～1837例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048948.html"
         },
@@ -15,11 +20,6 @@
             "date": "2021/04/30",
             "text": "新型コロナウイルス感染症患者の死亡について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048945.html"
-        },
-        {
-            "date": "2021/04/30",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1822～1826例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202104/048946.html"
         }
     ]
 }
