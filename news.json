@@ -8,6 +8,11 @@
         },
         {
             "date": "2021/05/07",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第1929～1953例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048975.html"
+        },
+        {
+            "date": "2021/05/07",
             "text": "新型コロナウイルス感染症の感染者の発生について（第1954例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048976.html"
         },
@@ -15,11 +20,6 @@
             "date": "2021/05/06",
             "text": "新型コロナウイルス感染症の感染者の発生について（第1917～1928例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048974.html"
-        },
-        {
-            "date": "2021/05/05",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1914～1916例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048964.html"
         }
     ]
 }
