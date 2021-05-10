@@ -92,9 +92,13 @@ class CovidDataManager:
         header = rows[0]
         header = self.translate_header(header)
         maindatas = rows[1:]
+        print(len(header))
         for d in maindatas:
             #空行はスキップ
             if d == []:
+                continue
+            #print(d, len(d))
+            if d == maindatas[-1] and len(d) < 5:
                 continue
             data = {}
             for i in range(len(header)):
