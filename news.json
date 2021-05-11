@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/09",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2019～2022例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048994.html"
+        },
+        {
             "date": "2021/05/08",
             "text": "新型コロナウイルス感染症の感染者の発生について（第1980～1985例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048981.html"
@@ -15,11 +20,6 @@
             "date": "2021/05/07",
             "text": "全国知事会「第２２回新型コロナウイルス緊急対策本部」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048973.html"
-        },
-        {
-            "date": "2021/05/07",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第1929～1953例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048975.html"
         }
     ]
 }
