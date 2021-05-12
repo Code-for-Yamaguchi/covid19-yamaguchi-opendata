@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/12",
+            "text": "県職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049005.html"
+        },
+        {
+            "date": "2021/05/12",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2166～2173例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049010.html"
+        },
+        {
+            "date": "2021/05/12",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2125～2165例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049011.html"
+        },
+        {
             "date": "2021/05/11",
             "text": "全国知事会 「新型コロナウイルス感染症緊急事態宣言の区域変更・期間延長等を受けた緊急提言」及び「新型コロナ「変異株」に最大の警戒を！！」の取りまとめについて",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/048999.html"
-        },
-        {
-            "date": "2021/05/11",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049002.html"
-        },
-        {
-            "date": "2021/05/11",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2119～2124例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049003.html"
-        },
-        {
-            "date": "2021/05/11",
-            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049004.html"
         }
     ]
 }
