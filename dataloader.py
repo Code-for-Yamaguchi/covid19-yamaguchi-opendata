@@ -411,7 +411,20 @@ class GraphData:
         with open(out_directory+ self.outfile[8], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
 
+    # TODO: バグの原因。年越しまでに要変更
+    def interpolate_year(self, datestr):
+        print(datestr)
+        datestr = re.sub(r"[年月]", "/", datestr)
+        datestr = re.sub(r"[日]", "", datestr)
+
+        fmtstr = re.split("\D", datestr) # 数字以外で区切る
+        if len(fmtstr) == 3:
+            return datestr
+        else:
+            return "2021/" + datestr
+
     def format_date(self, date_str):
+        date_str = self.interpolate_year(date_str)
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
         date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
