@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/21",
+            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049100.html"
+        },
+        {
             "date": "2021/05/20",
             "text": "新型コロナウイルス感染症対策に係る寄附金の受領と感謝状贈呈式について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049091.html"
@@ -15,11 +20,6 @@
             "date": "2021/05/20",
             "text": "新型コロナウイルス感染症の感染者の発生について（第2558～2565例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049094.html"
-        },
-        {
-            "date": "2021/05/20",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2510～2557例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049095.html"
         }
     ]
 }
