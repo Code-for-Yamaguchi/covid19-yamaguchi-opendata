@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/26",
+            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049141.html"
+        },
+        {
             "date": "2021/05/25",
             "text": "新型コロナウイルス感染症感染者の死亡について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049125.html"
@@ -15,11 +20,6 @@
             "date": "2021/05/24",
             "text": "県職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049112.html"
-        },
-        {
-            "date": "2021/05/24",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2711～2739例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049132.html"
         }
     ]
 }
