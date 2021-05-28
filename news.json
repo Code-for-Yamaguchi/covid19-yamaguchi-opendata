@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/05/28",
+            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049163.html"
+        },
+        {
+            "date": "2021/05/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2859～2868例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049166.html"
+        },
+        {
+            "date": "2021/05/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2835～2858例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049168.html"
+        },
+        {
             "date": "2021/05/27",
             "text": "全国知事会「第２３回新型コロナウイルス緊急対策本部」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049149.html"
-        },
-        {
-            "date": "2021/05/26",
-            "text": "新型コロナウイルス変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049141.html"
-        },
-        {
-            "date": "2021/05/25",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049125.html"
-        },
-        {
-            "date": "2021/05/25",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2752～2764例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202105/049133.html"
         }
     ]
 }
