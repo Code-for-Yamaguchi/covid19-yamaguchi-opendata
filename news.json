@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/06/03",
+            "text": "新型コロナウイルス変異株のゲノム解析の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049214.html"
+        },
+        {
+            "date": "2021/06/03",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2957～2959例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049215.html"
+        },
+        {
+            "date": "2021/06/03",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2943～2956例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049216.html"
+        },
+        {
             "date": "2021/06/02",
             "text": "新型コロナウイルス感染症に関する全国知事会と国との意見交換会",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049212.html"
-        },
-        {
-            "date": "2021/06/02",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2939～2941例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049204.html"
-        },
-        {
-            "date": "2021/06/02",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049205.html"
-        },
-        {
-            "date": "2021/06/02",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2928～2938,2942例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049206.html"
         }
     ]
 }
