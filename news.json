@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/06/08",
+            "text": "新型コロナウイルス感染症感染者の死亡について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049259.html"
+        },
+        {
+            "date": "2021/06/08",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3003例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049260.html"
+        },
+        {
+            "date": "2021/06/08",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第2998～3002例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049261.html"
+        },
+        {
             "date": "2021/06/07",
             "text": "新型コロナウイルス感染症感染者の死亡について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049256.html"
-        },
-        {
-            "date": "2021/06/07",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2995、2996例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049257.html"
-        },
-        {
-            "date": "2021/06/07",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2997例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049258.html"
-        },
-        {
-            "date": "2021/06/06",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第2985～2992例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049253.html"
         }
     ]
 }
