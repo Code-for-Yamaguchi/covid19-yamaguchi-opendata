@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/06/19",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3094例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049345.html"
+        },
+        {
+            "date": "2021/06/19",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3095～3098例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049346.html"
+        },
+        {
             "date": "2021/06/18",
             "text": "「山口県新型コロナウイルス感染症対策本部」第２４回本部員会議の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049341.html"
@@ -10,16 +20,6 @@
             "date": "2021/06/17",
             "text": "全国知事会「第２４回新型コロナウイルス緊急対策本部」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049338.html"
-        },
-        {
-            "date": "2021/06/17",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第3088,3089例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049334.html"
-        },
-        {
-            "date": "2021/06/17",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第3090～3093例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202106/049335.html"
         }
     ]
 }
