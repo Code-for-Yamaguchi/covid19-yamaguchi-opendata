@@ -3,23 +3,23 @@
     "newsItems": [
         {
             "date": "2021/07/12",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3178例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049559.html"
+        },
+        {
+            "date": "2021/07/12",
             "text": "新型コロナウイルス感染症の感染者の発生について（第3177例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049560.html"
         },
         {
-            "date": "2021/07/10",
-            "text": "新型コロナウイルスL452R変異株のゲノム解析の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049536.html"
+            "date": "2021/07/11",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3175例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049566.html"
         },
         {
-            "date": "2021/07/10",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第3173,3174例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049545.html"
-        },
-        {
-            "date": "2021/07/10",
-            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049549.html"
+            "date": "2021/07/11",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3176例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049567.html"
         }
     ]
 }
