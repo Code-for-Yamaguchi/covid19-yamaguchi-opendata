@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/07/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3222～3230例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049707.html"
+        },
+        {
+            "date": "2021/07/28",
+            "text": "新型コロナウイルスL452R変異株ＰＣＲ検査の結果について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049708.html"
+        },
+        {
             "date": "2021/07/27",
             "text": "新型コロナウイルス感染症の感染者の発生について（第3215～3221例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049696.html"
@@ -10,16 +20,6 @@
             "date": "2021/07/26",
             "text": "新型コロナウイルス感染症の感染者の発生について（第3210～3214例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049693.html"
-        },
-        {
-            "date": "2021/07/25",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第3208例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049690.html"
-        },
-        {
-            "date": "2021/07/25",
-            "text": "新型コロナウイルスL452R変異株ＰＣＲ検査の結果について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202107/049691.html"
         }
     ]
 }
