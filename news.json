@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/08/12",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第3539～3546例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/049877.html"
+        },
+        {
             "date": "2021/08/11",
             "text": "新型コロナウイルス感染症の感染者の発生について（第3489～3492例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202108/049861.html"
@@ -15,11 +20,6 @@
             "date": "2021/08/11",
             "text": "県職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202108/049868.html"
-        },
-        {
-            "date": "2021/08/10",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第3462～3467例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/049853.html"
         }
     ]
 }
