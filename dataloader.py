@@ -95,7 +95,7 @@ class CovidDataManager:
         print(len(header))
         for d in maindatas:
             #空行はスキップ
-            if d == []:
+            if self.is_empty(d):
                 continue
             #print(d, len(d))
             if d == maindatas[-1] and len(d) < 5:
@@ -131,6 +131,12 @@ class CovidDataManager:
             os.makedirs(directory)
         with open(directory + key + '.json', 'w', encoding='utf-8') as f:
             json.dump(self.data[key], f, indent=4, ensure_ascii=False)
+
+    def is_empty(self, data):
+        if data == []: return True
+        elif data[0] == '': return True
+
+        return False
 
 class GraphData:
     def __init__(self):
