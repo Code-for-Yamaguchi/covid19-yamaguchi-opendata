@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/08/27",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第4624～4634例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/050012.html"
+        },
+        {
+            "date": "2021/08/27",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第4559～4623例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/050013.html"
+        },
+        {
             "date": "2021/08/26",
             "text": "新型コロナウイルス感染症の感染拡大防止に係る県主催イベント等の中止・延期の対応について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202108/049999.html"
@@ -10,16 +20,6 @@
             "date": "2021/08/26",
             "text": "新型コロナウイルス感染症の感染拡大防止に係る県有施設の対応について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202108/050000.html"
-        },
-        {
-            "date": "2021/08/26",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/050001.html"
-        },
-        {
-            "date": "2021/08/26",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第4535～4558例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202108/050002.html"
         }
     ]
 }
