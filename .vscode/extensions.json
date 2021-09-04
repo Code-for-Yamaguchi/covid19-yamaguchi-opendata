@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "oderwat.indent-rainbow",
+    "vscode-icons-team.vscode-icons",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "github.vscode-pull-request-github",
+    "ms-ceintl.vscode-language-pack-ja",
+    "ms-azuretools.vscode-docker",
+    "vtrois.gitmoji-vscode",
+    "gruntfuggly.todo-tree",
+    "mosapride.zenkaku",
+    "shardulm94.trailing-spaces",
+    "kevinrose.vsc-python-indent",
+    "tabnine.tabnine-vscode",
+    "ms-python.vscode-pylance"
+  ]
+}
