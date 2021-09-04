@@ -33,3 +33,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./data
           publish_branch: gh-pages
+
+      - name: Notificate Slack Channel
+        uses: rtCamp/action-slack-notify@v2
+        if: always()
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: "Job Result: ${{ job.status }}"
+          SLACK_TITLE: Job Result
+          SLACK_USERNAME: Job Result Bot
