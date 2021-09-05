@@ -3,8 +3,8 @@ services:
   python3:
     restart: always
     build: .
-    container_name: 'covid19-python3'
+    container_name: 'python3'
     working_dir: '/root/'
     tty: true
     volumes:
-      - ./:/root/opt
+      - ./:/root/

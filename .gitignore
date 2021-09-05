@@ -1,4 +1,5 @@
 __pycache__/
 origin_data/*
 data/*
-.vscode/
+.cache/*
+.bash_history
