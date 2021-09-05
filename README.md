@@ -23,3 +23,10 @@ Json APIで提供しています。
 |相談件数|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/7f2f7b7c-48de-4c41-86ae-bef45da8aeaa)|[querents.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/querents.json)|
 |山口県内感染者発生状況1|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[map_update.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/map_update.json)|
 |山口県内感染者発生状況2|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[yamaguchi-map.png](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/yamaguchi-map.png)|
+
+## Environment
+
+```bash
+docker compose up -d --build
+docker compose run --rm python3 python main.py
+```
