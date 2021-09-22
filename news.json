@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2021/09/22",
+            "text": "「山口県新型コロナウイルス感染症対策本部」第２８回本部員会議の開催について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050225.html"
+        },
+        {
+            "date": "2021/09/22",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5517～5521例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050215.html"
         },
@@ -15,11 +20,6 @@
             "date": "2021/09/22",
             "text": "新型コロナウイルス感染症感染者の死亡について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050223.html"
-        },
-        {
-            "date": "2021/09/21",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5504～5506例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050209.html"
         }
     ]
 }
