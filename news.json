@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/09/28",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第5561,5562例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050272.html"
+        },
+        {
+            "date": "2021/09/28",
+            "text": "沿道飲食店等の路上利用に伴う道路占用許可基準の緩和措置の期間再延長について（新型コロナウイルス感染症の影響への対応）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050161.html"
+        },
+        {
             "date": "2021/09/27",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5557～5560例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050263.html"
@@ -10,16 +20,6 @@
             "date": "2021/09/26",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5551～5556例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050261.html"
-        },
-        {
-            "date": "2021/09/26",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5548～5550例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050262.html"
-        },
-        {
-            "date": "2021/09/25",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5543～5547例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050248.html"
         }
     ]
 }
