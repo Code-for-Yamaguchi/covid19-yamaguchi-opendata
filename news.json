@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/10/02",
+            "text": "新型コロナウイルス感染症の緊急事態宣言等の解除に伴う県民の皆様・事業者の皆様へのお願いについて",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050333.html"
+        },
+        {
+            "date": "2021/10/02",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第5593例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050339.html"
+        },
+        {
+            "date": "2021/10/02",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第5590～5592例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050342.html"
+        },
+        {
             "date": "2021/10/01",
             "text": "全国知事会「第２９回新型コロナウイルス緊急対策本部」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050328.html"
-        },
-        {
-            "date": "2021/10/01",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5589例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050317.html"
-        },
-        {
-            "date": "2021/10/01",
-            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050318.html"
-        },
-        {
-            "date": "2021/10/01",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5579～5588例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202109/050319.html"
         }
     ]
 }
