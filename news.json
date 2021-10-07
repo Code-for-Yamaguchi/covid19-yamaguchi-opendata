@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/10/07",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第5619例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050388.html"
+        },
+        {
             "date": "2021/10/06",
             "text": "新型コロナウイルス感染症対策に係る寄附金の受領と感謝状贈呈式について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050377.html"
@@ -15,11 +20,6 @@
             "date": "2021/10/06",
             "text": "新型コロナウイルス感染症感染者の死亡について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050370.html"
-        },
-        {
-            "date": "2021/10/06",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5612～5615例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202110/050372.html"
         }
     ]
 }
