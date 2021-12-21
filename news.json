@@ -2,14 +2,14 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/12/21",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第5799例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051094.html"
+        },
+        {
             "date": "2021/12/18",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5798例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051084.html"
-        },
-        {
-            "date": "2021/12/16",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5797例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051067.html"
         }
     ]
 }
