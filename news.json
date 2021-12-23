@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2021/12/23",
+            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051118.html"
+        },
+        {
             "date": "2021/12/22",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5800～5802例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051106.html"
@@ -15,11 +20,6 @@
             "date": "2021/12/21",
             "text": "新型コロナウイルス感染症の感染者の発生について（第5799例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051094.html"
-        },
-        {
-            "date": "2021/12/18",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第5798例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202112/051084.html"
         }
     ]
 }
