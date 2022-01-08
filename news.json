@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2022/01/08",
+            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051222.html"
+        },
+        {
+            "date": "2022/01/08",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第6311～6485例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051224.html"
+        },
+        {
             "date": "2022/01/07",
             "text": "全国知事会「新型コロナウイルス緊急対策本部役員会議」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051207.html"
@@ -10,16 +20,6 @@
             "date": "2022/01/07",
             "text": "「山口県新型コロナウイルス感染症対策本部」第３１回本部員会議の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051201.html"
-        },
-        {
-            "date": "2022/01/07",
-            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051213.html"
-        },
-        {
-            "date": "2022/01/07",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第6130～6309例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051214.html"
         }
     ]
 }
