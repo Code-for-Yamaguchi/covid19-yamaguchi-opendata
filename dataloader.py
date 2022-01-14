@@ -191,8 +191,19 @@ class GraphData:
             dic["居住地"] = dic.pop("市区町村名")
             dic["年代"] = dic.pop("患者_年代")
             dic["性別"] = dic.pop("患者_性別")
-            dic["公表日"] = self.format_date(dic["公表日"]) + "T08:00:00.000Z"
-            dic["陽性確定日"] = self.format_date(dic["陽性確定日"]) + "T08:00:00.000Z"
+            #TODO: 例外処理ちゃんとかく
+            try:
+                dic["公表日"] = self.format_date(dic["公表日"]) + "T08:00:00.000Z"
+            except Exception as e:
+                print("公表日未検出")
+                dic["公表日"] = dic["公表日"]
+                pass
+            try:
+                dic["陽性確定日"] = self.format_date(dic["陽性確定日"]) + "T08:00:00.000Z"
+            except Exception as e:
+                print(str(e) + '陽性確定日未検出')
+                dic["陽性確定日"] = dic["陽性確定日"]
+                pass
             del_list = ['都道府県名', '全国地方公共団体コード']
             [dic.pop(d) for d in del_list]
             out.append(dic)
@@ -430,11 +441,14 @@ class GraphData:
             return "2021/" + datestr
 
     def format_date(self, date_str):
-        date_str = self.interpolate_year(date_str)
-        #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
-        date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
+        try:
+            date_str = self.interpolate_year(date_str)
+            #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
+            date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
-        return date_dt.strftime("%Y-%m-%d")
+            return date_dt.strftime("%Y-%m-%d")
+        except Exception:
+            raise
 
     def format_date2(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
@@ -492,6 +506,9 @@ class GraphData:
         date_list = []
         for d in data:
             date_str = d.get("公表日")
+            #TODO: 例外処理周りちゃんとかく
+            if date_str == '欠番':
+                continue
             dt = self.format_date(date_str)
             dt = datetime.date(int(dt[:4]), int(dt[5:7]), int(dt[8:10]))
             if '欠番' not in d.get('備考'):
