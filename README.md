@@ -24,9 +24,35 @@ Json APIで提供しています。
 |山口県内感染者発生状況1|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[map_update.json](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/map_update.json)|
 |山口県内感染者発生状況2|[山口県オープンデータカタログサイト](https://yamaguchi-opendata.jp/ckan/dataset/350001-covid19/resource/f56e6552-4c5d-4ec6-91c0-090f553e0aea)|[yamaguchi-map.png](https://nishidayoshikatsu.github.io/covid19-yamaguchi-opendata/yamaguchi-map.png)|
 
+
+## Dependencies
+
+以下の前提環境が必要
+
+- python 3.7.3
+
+または、
+
+- docker-compose v2.x
+- make v3.x
+
 ## Environment
 
-```bash
-docker compose up -d --build
-docker compose run --rm python3 python main.py
+以下のいずれかの方法で環境構築を行う
+（方法2を推奨）
+
+### 方法 1
+以下のコマンドをターミナルで実行
+```
+$ git clone git@github.com:nishidayoshikatsu/covid19-yamaguchi-opendata.git
+$ pip3 install --no-cache-dir -r requirements.txt
+$ python3 main.py
+```
+
+### 方法 2
+以下のコマンドをターミナルで実行
+```
+$ git clone git@github.com:nishidayoshikatsu/covid19-yamaguchi-opendata.git
+$ make upd
+$ make exec
 ```

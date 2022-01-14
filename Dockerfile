@@ -1,4 +1,4 @@
-FROM conda/miniconda3
+FROM conda/miniconda3:latest
 USER root
 
 RUN apt-get update
