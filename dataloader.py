@@ -191,8 +191,19 @@ class GraphData:
             dic["居住地"] = dic.pop("市区町村名")
             dic["年代"] = dic.pop("患者_年代")
             dic["性別"] = dic.pop("患者_性別")
-            dic["公表日"] = self.format_date(dic["公表日"]) + "T08:00:00.000Z"
-            dic["陽性確定日"] = self.format_date(dic["陽性確定日"]) + "T08:00:00.000Z"
+            #TODO: 例外処理ちゃんとかく
+            try:
+                dic["公表日"] = self.format_date(dic["公表日"]) + "T08:00:00.000Z"
+            except Exception as e:
+                print("公表日未検出")
+                dic["公表日"] = dic["公表日"]
+                pass
+            try:
+                dic["陽性確定日"] = self.format_date(dic["陽性確定日"]) + "T08:00:00.000Z"
+            except Exception as e:
+                print(str(e) + '陽性確定日未検出')
+                dic["陽性確定日"] = dic["陽性確定日"]
+                pass
             del_list = ['都道府県名', '全国地方公共団体コード']
             [dic.pop(d) for d in del_list]
             out.append(dic)
@@ -289,7 +300,7 @@ class GraphData:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     def generate_maps(self, origin_directory='origin_data/', out_directory='data/'):
-       
+
         with open(origin_directory + "patients.json", encoding='utf-8') as f:
             data = json.load(f)
         city_list = [
@@ -306,13 +317,13 @@ class GraphData:
         for key in city_dict.keys():
             if city_dict[key] == 0:
                 color_dict[key] = "white"
-            elif city_dict[key] <= 50:
+            elif city_dict[key] <= 200:
                 color_dict[key] = "#DCF8DC"
-            elif city_dict[key] <= 100:
+            elif city_dict[key] <= 400:
                 color_dict[key] = "#95EA95"
-            elif city_dict[key] <= 150:
+            elif city_dict[key] <= 600:
                 color_dict[key] = "#2BD52B"
-            elif color_dict[key] <= 200:
+            elif color_dict[key] <= 800:
                 color_dict[key] = "#1D8D1D"
             else:
                 color_dict[key] = "#0E470E"
@@ -388,9 +399,9 @@ class GraphData:
         for i,heat in enumerate(heat_colorlist):
             base.add_patch(patches.Rectangle(xy=(131.83, 35.12-i*0.1), width=0.25, height=0.1, fc=heat, ec="black", fill=True))
             if i == 4:
-                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(50*i+1)+"以上")
+                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(200*i+1)+"以上")
             else:
-                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(50*i+1)+"-"+str(50*(i+1)))
+                base.text(132.09, 35.05-i*0.1+0.1, "・・・"+str(200*i+1)+"-"+str(200*(i+1)))
 
         plt.savefig(out_directory+"yamaguchi-map.png", bbox_inches='tight')
         #plt.show()
@@ -430,11 +441,14 @@ class GraphData:
             return "2021/" + datestr
 
     def format_date(self, date_str):
-        date_str = self.interpolate_year(date_str)
-        #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
-        date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
+        try:
+            date_str = self.interpolate_year(date_str)
+            #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
+            date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
-        return date_dt.strftime("%Y-%m-%d")
+            return date_dt.strftime("%Y-%m-%d")
+        except Exception:
+            raise
 
     def format_date2(self, date_str):
         #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
@@ -492,6 +506,9 @@ class GraphData:
         date_list = []
         for d in data:
             date_str = d.get("公表日")
+            #TODO: 例外処理周りちゃんとかく
+            if date_str == '欠番':
+                continue
             dt = self.format_date(date_str)
             dt = datetime.date(int(dt[:4]), int(dt[5:7]), int(dt[8:10]))
             if '欠番' not in d.get('備考'):
