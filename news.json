@@ -2,24 +2,24 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2022/01/18",
+            "text": "「山口県新型コロナウイルス感染症対策本部」第３３回本部員会議の開催について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051314.html"
+        },
+        {
+            "date": "2022/01/18",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第8129～8328例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051315.html"
+        },
+        {
+            "date": "2022/01/18",
+            "text": "新型コロナウイルス感染症患者の受入病床の拡充について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051322.html"
+        },
+        {
             "date": "2022/01/17",
             "text": "新型コロナウイルス感染症の感染者の発生について（第7929～8099例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051306.html"
-        },
-        {
-            "date": "2022/01/17",
-            "text": "県職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051304.html"
-        },
-        {
-            "date": "2022/01/17",
-            "text": "県職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051305.html"
-        },
-        {
-            "date": "2022/01/16",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051302.html"
         }
     ]
 }
