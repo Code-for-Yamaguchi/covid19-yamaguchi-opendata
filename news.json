@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2022/01/25",
+            "text": "県立学校の臨時休業及び教職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051381.html"
+        },
+        {
             "date": "2022/01/24",
             "text": "教職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051375.html"
@@ -15,11 +20,6 @@
             "date": "2022/01/23",
             "text": "教育委員会に勤務する職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051367.html"
-        },
-        {
-            "date": "2022/01/23",
-            "text": "教職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051369.html"
         }
     ]
 }
