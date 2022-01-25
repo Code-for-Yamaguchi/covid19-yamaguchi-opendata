@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2022/01/25",
+            "text": "新型コロナウイルス感染症の感染者の発生について（第10256～10481例目）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051384.html"
+        },
+        {
+            "date": "2022/01/25",
             "text": "県立学校の臨時休業及び教職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051381.html"
         },
@@ -15,11 +20,6 @@
             "date": "2022/01/24",
             "text": "県職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051377.html"
-        },
-        {
-            "date": "2022/01/24",
-            "text": "教職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051375.html"
         }
     ]
 }
