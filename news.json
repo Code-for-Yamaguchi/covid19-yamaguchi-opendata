@@ -3,23 +3,23 @@
     "newsItems": [
         {
             "date": "2022/02/01",
-            "text": "教職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051457.html"
-        },
-        {
-            "date": "2022/01/31",
-            "text": "新型コロナウイルス感染症感染者の死亡について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051444.html"
-        },
-        {
-            "date": "2022/01/31",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第12529～12799例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051445.html"
-        },
-        {
-            "date": "2022/01/31",
             "text": "県職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051447.html"
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051460.html"
+        },
+        {
+            "date": "2022/02/01",
+            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051462.html"
+        },
+        {
+            "date": "2022/02/01",
+            "text": "新型コロナウイルス感染症対策知事・１９市町長会議について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051465.html"
+        },
+        {
+            "date": "2022/02/01",
+            "text": "新型コロナウイルス感染症の感染拡大防止に係る県有施設の対応について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051454.html"
         }
     ]
 }
