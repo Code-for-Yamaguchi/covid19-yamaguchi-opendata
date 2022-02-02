@@ -3,6 +3,11 @@
     "newsItems": [
         {
             "date": "2022/02/02",
+            "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051472.html"
+        },
+        {
+            "date": "2022/02/02",
             "text": "教職員の新型コロナウイルス感染について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051473.html"
         },
@@ -15,11 +20,6 @@
             "date": "2022/02/01",
             "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051462.html"
-        },
-        {
-            "date": "2022/02/01",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第12912～13087例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202201/051463.html"
         }
     ]
 }
