@@ -2,6 +2,11 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2022/02/11",
+            "text": "教職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051546.html"
+        },
+        {
             "date": "2022/02/10",
             "text": "新型コロナウイルス感染症の感染者の発生について（第15655～15853例目）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051540.html"
@@ -15,11 +20,6 @@
             "date": "2022/02/10",
             "text": "新型コロナウイルス感染症感染者の公表に関する計上漏れについて",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051542.html"
-        },
-        {
-            "date": "2022/02/10",
-            "text": "県職員の新型コロナウイルス感染について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051527.html"
         }
     ]
 }
