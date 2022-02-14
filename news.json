@@ -2,6 +2,16 @@
     "last_update": "",
     "newsItems": [
         {
+            "date": "2022/02/14",
+            "text": "県職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051563.html"
+        },
+        {
+            "date": "2022/02/12",
+            "text": "教職員の新型コロナウイルス感染について",
+            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051557.html"
+        },
+        {
             "date": "2022/02/11",
             "text": "全国知事会「第３３回新型コロナウイルス緊急対策本部」の開催について",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051552.html"
@@ -10,16 +20,6 @@
             "date": "2022/02/11",
             "text": "新型コロナウイルス感染症の感染者について（米軍岩国基地関連）",
             "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051544.html"
-        },
-        {
-            "date": "2022/02/11",
-            "text": "新型コロナウイルス感染症患者の受入病床の拡充について",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051545.html"
-        },
-        {
-            "date": "2022/02/11",
-            "text": "新型コロナウイルス感染症の感染者の発生について（第16005～16197例目）",
-            "url": "https://www.pref.yamaguchi.lg.jp/press/202202/051553.html"
         }
     ]
 }
