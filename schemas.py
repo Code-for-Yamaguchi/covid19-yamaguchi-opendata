@@ -191,7 +191,7 @@ SCHEMAS = {
                     "default": {},
                     "required": [
                         "受付_年月日",
-                        "入院",
+                        "入院等",
                         "退院",
                         "死亡"
                     ],
@@ -212,7 +212,7 @@ SCHEMAS = {
                             "type": "string",
                             "default": ""
                         },
-                        "入院": {
+                        "入院等": {
                             "type": "integer",
                             "default": ""
                         },
