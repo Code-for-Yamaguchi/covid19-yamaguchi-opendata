@@ -268,10 +268,10 @@ class GraphData:
 
         prev_data["last_update"] = data2["last_update"]
         prev_data["data"][0]["検査実施人数"] = data["data"][-1]["検査実施_人数 "]
-        prev_data["data"][0]["入院中"] = data2["data"][-1]["入院"]
+        prev_data["data"][0]["入院中"] = data2["data"][-1]["入院等"]
         prev_data["data"][0]["退院"] = data2["data"][-1]["退院"]
         prev_data["data"][0]["死亡"] = data2["data"][-1]["死亡"]
-        prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院"] + data2["data"][-1]["退院"] + data2["data"][-1]["死亡"]
+        prev_data["data"][0]["陽性患者数"] = data2["data"][-1]["入院等"] + data2["data"][-1]["退院"] + data2["data"][-1]["死亡"]
 
         with open(out_directory+ self.outfile[5], 'w') as f:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '))
@@ -429,6 +429,7 @@ class GraphData:
             json.dump(prev_data, f, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=True)
 
     # TODO: バグの原因。年越しまでに要変更
+    
     def interpolate_year(self, datestr):
         print(datestr)
         datestr = re.sub(r"[年月]", "/", datestr)
@@ -442,7 +443,7 @@ class GraphData:
 
     def format_date(self, date_str):
         try:
-            date_str = self.interpolate_year(date_str)
+            #date_str = self.interpolate_year(date_str)
             #print(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=+9), "JST")).isoformat())
             date_dt = datetime.datetime.strptime(date_str, "%Y/%m/%d")
 
@@ -507,7 +508,7 @@ class GraphData:
         for d in data:
             date_str = d.get("公表日")
             #TODO: 例外処理周りちゃんとかく
-            if date_str == '欠番':
+            if date_str == '欠番' or date_str == '':
                 continue
             dt = self.format_date(date_str)
             dt = datetime.date(int(dt[:4]), int(dt[5:7]), int(dt[8:10]))
